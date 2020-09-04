@@ -1,0 +1,2 @@
+# FriendlyEatsNg
+FriendlyEats in angularFire!

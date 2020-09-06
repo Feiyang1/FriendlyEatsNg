@@ -1,4 +1,7 @@
 <div *ngIf="restaurant; else notExist">
+    <div class="xmark" (click)="onCancel()">
+        ✘
+    </div>
     <div class="header"
         [ngStyle]="{'background-image': 'url(' + restaurant.photoUrl + ')', 'background-size': 'cover', 'background-position': 'center'}">
         <div class="content">

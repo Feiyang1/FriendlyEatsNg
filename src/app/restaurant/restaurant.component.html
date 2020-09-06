@@ -1,15 +1,40 @@
 <div *ngIf="restaurant; else notExist">
-    <div *ngFor="let rev of restaurant.reviews">
-        <div>
-            <div>{{rev.userName}}</div>
-            <div>{{star}}</div>
+    <div class="header"
+        [ngStyle]="{'background-image': 'url(' + restaurant.photoUrl + ')', 'background-size': 'cover', 'background-position': 'center'}">
+        <div class="content">
+            <div class="header-row">
+                <div class="item name">
+                    <h2>{{restaurant.name}}</h2>
+                </div>
+                <div class="item">{{restaurant.price | price}}</div>
+            </div>
+            <div class="header-row">
+                {{restaurant.averageStar | star}}
+            </div>
+            <div class="header-row">
+                <div class="item">{{restaurant.category}}</div>
+                <div class="item">&#x2022;</div>
+                <div class="item">{{restaurant.city}}</div>
+            </div>
+            <div class="header-row">
+                {{restaurant.description}}
+            </div>
         </div>
-        <div>{{rev.comment}}</div>
-        <div>------------------------</div>
     </div>
+    <div class="reviews">
+        <div *ngFor="let rev of restaurant.reviews">
+            <div>
+                <div>{{rev.userName}}</div>
+                <div>{{star}}</div>
+            </div>
+            <div>{{rev.comment}}</div>
+            <div>------------------------</div>
+        </div>
+    </div>
+
 </div>
 
 
 <ng-template #notExist>
-    <div >Oops! the restaurant doesn't exist</div>
+    <div>Oops! the restaurant doesn't exist</div>
 </ng-template>

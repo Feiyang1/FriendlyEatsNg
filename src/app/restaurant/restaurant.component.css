@@ -1,0 +1,23 @@
+.header {
+    color: white;
+}
+
+.header .content {
+    max-width: 37.5em;
+    margin: 0 auto;
+}
+
+.header-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.header-row .item {
+    margin-right: 0.5em;
+}
+
+.reviews {
+    max-width: 37.5em;
+    margin: 0 auto;
+}

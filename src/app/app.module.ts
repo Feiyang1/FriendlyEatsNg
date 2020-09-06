@@ -11,13 +11,17 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { RestaurantComponent } from './restaurant/restaurant.component';
 import { MainComponent } from './main/main.component';
+import { StarPipe } from './star.pipe';
+import { PricePipe } from './price.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     RestaurantsComponent,
     RestaurantComponent,
-    MainComponent
+    MainComponent,
+    StarPipe,
+    PricePipe
   ],
   imports: [
     BrowserModule,

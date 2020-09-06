@@ -1,0 +1,15 @@
+<div *ngIf="restaurant; else notExist">
+    <div *ngFor="let rev of restaurant.reviews">
+        <div>
+            <div>{{rev.userName}}</div>
+            <div>{{star}}</div>
+        </div>
+        <div>{{rev.comment}}</div>
+        <div>------------------------</div>
+    </div>
+</div>
+
+
+<ng-template #notExist>
+    <div >Oops! the restaurant doesn't exist</div>
+</ng-template>

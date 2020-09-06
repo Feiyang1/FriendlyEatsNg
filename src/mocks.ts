@@ -22,6 +22,7 @@ export function generateMockRestaurants(howMany: number): Restaurant[] {
         const photoUrl = 'https://storage.googleapis.com/firestorequickstarts.appspot.com/food_' + photoID + '.png';
 
         restaurants.push(new RestaurantImpl(
+            i,
             name,
             category,
             city,

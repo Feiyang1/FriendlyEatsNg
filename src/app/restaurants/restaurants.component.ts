@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Restaurant } from '../../models/restaurant';
-import { generateMockRestaurants } from 'src/mocks';
+import { Router } from '@angular/router';
+import { RestaurantService } from '../restaurant.service';
 
 @Component({
   selector: 'app-restaurants',
@@ -9,10 +10,16 @@ import { generateMockRestaurants } from 'src/mocks';
 })
 export class RestaurantsComponent implements OnInit {
 
-  restaurants: Restaurant[] = generateMockRestaurants(10)
-  constructor() { }
+  restaurants: Restaurant[];
+  constructor(private router: Router, private restaurantService: RestaurantService) { 
+    this.restaurants = restaurantService.getRestaurants();
+  }
 
   ngOnInit(): void {
   }
 
+  onSelect(id: number) {
+    console.log('onSelect', id);
+    this.router.navigate([`restaurant/${id}`]);
+  }
 }

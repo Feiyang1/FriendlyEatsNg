@@ -1,4 +1,5 @@
 export interface Restaurant {
+    id: number;
     name: string;
     category: string;
     city: string;
@@ -22,6 +23,7 @@ export type Star = 0 | 1 | 2 | 3 | 4 | 5;
 
 export class RestaurantImpl implements Restaurant {
     constructor(
+        public id: number,
         public name: string,
         public category: string,
         public city: string,

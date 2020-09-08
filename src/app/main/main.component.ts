@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RcService } from '../rc.service';
 
 @Component({
   selector: 'app-main',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  darkTheme = false;
+  constructor(private config: RcService) { }
 
   ngOnInit(): void {
+    this.darkTheme = this.config.config.dark;
   }
 
 }

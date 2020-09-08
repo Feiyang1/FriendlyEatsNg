@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Restaurant } from '../../models/restaurant';
 import { Router } from '@angular/router';
 import { RestaurantService } from '../restaurant.service';
+import { RcService } from '../rc.service';
 
 @Component({
   selector: 'app-restaurants',
@@ -11,7 +12,7 @@ import { RestaurantService } from '../restaurant.service';
 export class RestaurantsComponent implements OnInit {
 
   restaurants: Restaurant[];
-  constructor(private router: Router, private restaurantService: RestaurantService) { 
+  constructor(private router: Router, restaurantService: RestaurantService) { 
     this.restaurants = restaurantService.getRestaurants();
   }
 

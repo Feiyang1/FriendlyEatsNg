@@ -1,4 +1,6 @@
-<mat-toolbar color="primary">
-    <span>Card view demo</span>
-</mat-toolbar>
-<app-restaurants></app-restaurants>
+<div [ngClass]="darkTheme ? 'dark-theme' : ''" class="mat-app-background">
+    <mat-toolbar color='primary'>
+        <span>Card view demo</span>
+    </mat-toolbar>
+    <app-restaurants></app-restaurants>
+</div>

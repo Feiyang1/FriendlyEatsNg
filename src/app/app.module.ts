@@ -13,6 +13,8 @@ import { RestaurantComponent } from './restaurant/restaurant.component';
 import { MainComponent } from './main/main.component';
 import { StarPipe } from './star.pipe';
 import { PricePipe } from './price.pipe';
+import { ConsoleComponent } from './console/console.component';
+import { ShellComponent } from './shell/shell.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { PricePipe } from './price.pipe';
     RestaurantComponent,
     MainComponent,
     StarPipe,
-    PricePipe
+    PricePipe,
+    ConsoleComponent,
+    ShellComponent
   ],
   imports: [
     BrowserModule,

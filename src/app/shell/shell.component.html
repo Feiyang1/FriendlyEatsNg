@@ -1,4 +1,14 @@
 <div class="shell">
-    <app-console></app-console>
-    <router-outlet></router-outlet>
+    <mat-toolbar color='primary'>
+        <button mat-raised-button (click)="drawer.toggle()">Console</button>
+        <span>Firebase for Web demo</span>
+    </mat-toolbar>
+    <mat-sidenav-container>
+        <mat-sidenav #drawer mode="side" opened>
+            <app-console></app-console>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
 </div>

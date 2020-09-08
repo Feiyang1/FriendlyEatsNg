@@ -37,7 +37,3 @@
 .container {
     position: relative;
 }
-
-:host {
-    width: 100%;
-}

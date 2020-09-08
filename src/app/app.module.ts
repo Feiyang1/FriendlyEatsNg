@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from "@angular/material/card";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatButtonModule } from "@angular/material/button";
+import { MatSidenavModule } from "@angular/material/sidenav";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { RestaurantComponent } from './restaurant/restaurant.component';
@@ -15,6 +16,7 @@ import { StarPipe } from './star.pipe';
 import { PricePipe } from './price.pipe';
 import { ConsoleComponent } from './console/console.component';
 import { ShellComponent } from './shell/shell.component';
+import { ConsoleRcComponent } from './console-rc/console-rc.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { ShellComponent } from './shell/shell.component';
     StarPipe,
     PricePipe,
     ConsoleComponent,
-    ShellComponent
+    ShellComponent,
+    ConsoleRcComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +37,7 @@ import { ShellComponent } from './shell/shell.component';
     MatCardModule,
     MatToolbarModule,
     MatButtonModule,
+    MatSidenavModule,
     FlexLayoutModule,
   ],
   providers: [],

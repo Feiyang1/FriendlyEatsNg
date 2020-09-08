@@ -1,0 +1,14 @@
+mat-sidenav-container {
+    height: 100%;
+}
+mat-sidenav {
+    background-color: rgb(5 30 52);
+    color: white;
+    height: 100%;
+    padding: 0.5em;
+}
+
+.firebase-logo {
+    height: 2em;
+    width: 2em;
+}

@@ -1,3 +1,15 @@
 .shell {
+    height: 100%;
+}
+
+.shell .content{
     display: flex;
+}
+
+.shell .mat-drawer-content {
+    overflow: visible;
+}
+
+.shell .mat-drawer {
+    overflow: visible;
 }

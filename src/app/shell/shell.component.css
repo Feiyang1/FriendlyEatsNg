@@ -13,3 +13,7 @@
 .shell .mat-drawer {
     overflow: visible;
 }
+
+mat-sidenav {
+    width: 40%;
+}

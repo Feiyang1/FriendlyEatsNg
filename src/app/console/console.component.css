@@ -8,6 +8,10 @@ mat-sidenav {
     padding: 0.5em;
 }
 
+mat-sidenav-content {
+    padding: 0.5em;
+}
+
 .firebase-logo {
     height: 2em;
     width: 2em;

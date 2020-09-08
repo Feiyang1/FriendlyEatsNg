@@ -8,6 +8,7 @@ import { MatCardModule } from "@angular/material/card";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatButtonModule } from "@angular/material/button";
 import { MatSidenavModule } from "@angular/material/sidenav";
+import { MatTabsModule } from "@angular/material/tabs";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { RestaurantComponent } from './restaurant/restaurant.component';
@@ -17,6 +18,7 @@ import { PricePipe } from './price.pipe';
 import { ConsoleComponent } from './console/console.component';
 import { ShellComponent } from './shell/shell.component';
 import { ConsoleRcComponent } from './console-rc/console-rc.component';
+import { MaterialModule } from './material-module';
 
 @NgModule({
   declarations: [
@@ -34,11 +36,8 @@ import { ConsoleRcComponent } from './console-rc/console-rc.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatCardModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
     FlexLayoutModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

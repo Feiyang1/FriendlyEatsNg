@@ -7,7 +7,7 @@ export class RcService {
 
   config: RemoteConfig = {
     dark: true,
-    round: true
+    round: false
   };
   constructor() { }
 

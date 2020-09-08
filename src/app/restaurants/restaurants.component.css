@@ -14,3 +14,18 @@
     margin-top: 0.8em;
     text-align: center;
 }
+
+.mat-card-image {
+    height: 15em;
+}
+
+.content {
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.mat-card-content p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

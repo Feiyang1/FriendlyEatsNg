@@ -12,7 +12,7 @@ import { RcService } from '../rc.service';
 export class RestaurantsComponent implements OnInit {
 
   restaurants: Restaurant[];
-  constructor(private router: Router, restaurantService: RestaurantService) { 
+  constructor(private router: Router, restaurantService: RestaurantService, private rc: RcService) { 
     this.restaurants = restaurantService.getRestaurants();
   }
 

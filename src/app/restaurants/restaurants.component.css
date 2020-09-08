@@ -1,4 +1,16 @@
-.dark {
-    background-color: rgb(24, 24, 24);
-    color: white;
+
+.round-container {
+    margin-bottom: 1.5em;
+}
+.round-container .round {
+    height: 10em;
+    width: 10em;
+    margin: 0 auto;
+    border-radius: 50%;
+    border: 1px solid white;
+}
+
+.round-container .name {
+    margin-top: 0.8em;
+    text-align: center;
 }

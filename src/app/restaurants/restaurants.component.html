@@ -1,16 +1,25 @@
 <div class="content" fxLayout="row wrap" fxLayoutGap="10px grid">
     <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let res of restaurants" (click)="onSelect(res.id)">
-        <mat-card class="mat-elevation-z4">
-            <mat-card-header>
-                <mat-card-title>{{res.name}}</mat-card-title>
-            </mat-card-header>
-            <img mat-card-image [src]="res.photoUrl" />
-            <mat-card-content>
-                <p>{{res.description}}</p>
-            </mat-card-content>
-            <mat-card-actions>
-                <button mat-button>LIKE</button> <button mat-button>SHARE</button>
-            </mat-card-actions>
-        </mat-card>
+        <div class="round-container" *ngIf="rc.config.round; else square">
+            <div class="round" [ngStyle]="{'background-image': 'url(' + res.photoUrl + ')', 'background-size': 'cover', 'background-position': 'center'}" >
+            </div>
+            <div class="name">{{res.name}}</div>
+        </div>
+
+        <ng-template #square>
+            <mat-card class="mat-elevation-z4" [ngClass]="rc.config.round ? 'round' : ''">
+                <mat-card-header>
+                    <mat-card-title>{{res.name}}</mat-card-title>
+                </mat-card-header>
+                <img mat-card-image [src]="res.photoUrl" />
+                <mat-card-content>
+                    <p>{{res.description}}</p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-button>LIKE</button> <button mat-button>SHARE</button>
+                </mat-card-actions>
+            </mat-card>
+        </ng-template>
+
     </div>
 </div>

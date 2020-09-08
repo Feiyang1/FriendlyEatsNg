@@ -9,10 +9,10 @@ import { RcService } from '../rc.service';
 export class MainComponent implements OnInit {
 
   darkTheme = false;
-  constructor(private config: RcService) { }
+  constructor(private rc: RcService) { }
 
   ngOnInit(): void {
-    this.darkTheme = this.config.config.dark;
+    this.darkTheme = this.rc.config.dark;
   }
 
 }

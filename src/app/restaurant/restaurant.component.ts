@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Restaurant } from 'src/models/restaurant';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RestaurantService } from '../restaurant.service';
+import { RcService } from '../rc.service';
 
 @Component({
   selector: 'app-restaurant',

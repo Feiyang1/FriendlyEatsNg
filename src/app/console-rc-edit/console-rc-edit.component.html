@@ -1,0 +1,20 @@
+<mat-dialog-content>
+    <div class="item">
+        <div class="label">Parameter key</div>
+        <div>
+            <input type="text" [value]="data.name" disabled>
+        </div>
+    </div>
+    <div class="item">
+        <div class="label">
+            Default value
+        </div>
+        <div>
+            <input type="text" [value]="data.value">
+        </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button class="update">Update</button>
+</mat-dialog-actions>

@@ -1,0 +1,31 @@
+mat-dialog-content {
+    display: flex;
+}
+
+.label {
+    color: rgba(0,0,0,.54);
+    font-size: 13px;
+    padding-bottom: 0.5rem;
+}
+
+input {
+    box-sizing: border-box;
+    padding: 0.5em;
+    border-radius: 0.25em;
+    border: 1px solid rgba(0,0,0,0.12);
+    width: 100%;
+}
+
+.item:not(:last-child) {
+    margin-right: 1.5em;
+    max-width: 20em;
+}
+
+.item:last-child {
+    flex-grow: 1;
+}
+
+button.update {
+    background-color:#1a73e8;
+    color: #fff;
+}

@@ -12,7 +12,7 @@ export class MainComponent implements OnInit {
   constructor(private rc: RcService) { }
 
   ngOnInit(): void {
-    this.darkTheme = this.rc.config.dark;
+    this.darkTheme = this.rc.parameters.find(p => p.name === 'dark').value as boolean;
   }
 
 }

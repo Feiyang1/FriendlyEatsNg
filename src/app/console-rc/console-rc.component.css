@@ -1,7 +1,53 @@
-table {
-    width: 100%;
+.table-header {
+    display: flex;
+    padding: 0 2.5rem;
+    line-height: 2em;
+    border-bottom: 1px solid rgba(0,0,0,0.12);
+    color: rgba(0,0,0,.64);
+    background: rgb(250 250 250);
+    font-weight: 500;
+    font-size: 0.8em;
 }
 
 .tab-content {
     padding: 1em;
+}
+
+.name {
+    max-width: 150px;
+    width: 100%;
+}
+
+.value {
+    flex-grow: 1;
+}
+
+.edit {
+    display: none;
+    cursor: pointer;
+}
+
+.table-row:hover .edit {
+    display: block;
+}
+
+.table-row {
+    display: flex;
+    padding: 1em 2.5em 1em 2.5em;
+}
+
+.table-row:hover {
+    background: rgba(0,0,0,0.04);
+}
+
+.table-row:not(:last-child) {
+    border-bottom: 1px solid rgba(0,0,0,0.12);
+}
+
+mat-card {
+    padding: 0;
+}
+
+button {
+    margin-bottom: 0.5em;
 }

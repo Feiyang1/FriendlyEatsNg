@@ -19,6 +19,7 @@ import { ConsoleComponent } from './console/console.component';
 import { ShellComponent } from './shell/shell.component';
 import { ConsoleRcComponent } from './console-rc/console-rc.component';
 import { MaterialModule } from './material-module';
+import { ConsoleRcEditComponent } from './console-rc-edit/console-rc-edit.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { MaterialModule } from './material-module';
     PricePipe,
     ConsoleComponent,
     ShellComponent,
-    ConsoleRcComponent
+    ConsoleRcComponent,
+    ConsoleRcEditComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +42,7 @@ import { MaterialModule } from './material-module';
     MaterialModule
   ],
   providers: [],
+  entryComponents: [ConsoleRcEditComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

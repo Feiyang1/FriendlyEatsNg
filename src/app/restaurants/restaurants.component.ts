@@ -23,4 +23,8 @@ export class RestaurantsComponent implements OnInit {
     console.log('onSelect', id);
     this.router.navigate([`restaurant/${id}`]);
   }
+
+  roundTile(): boolean {
+    return this.rc.parameters.find(p => p.name === 'round')!.value as boolean;
+  }
 }

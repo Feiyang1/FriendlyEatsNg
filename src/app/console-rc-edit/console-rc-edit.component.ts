@@ -14,6 +14,14 @@ export class ConsoleRcEditComponent implements OnInit {
   }
 
   onUpdate(): void {
-    this.dialogRef.close(this.data);
+    const param = { name: this.data.name, value: false };
+    if (this.data.value === 'false') {
+      param.value = false;
+    } else if (this.data.value === 'true') {
+      param.value = true;
+    } else {
+      // TODO: add data validation, so it becomes impossible.
+    }
+    this.dialogRef.close(param);
   }
 }

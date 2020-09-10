@@ -1,30 +1,33 @@
 import { Injectable } from '@angular/core';
 import { RcParameter } from 'src/models/rc';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RcService {
 
-  parameters: RcParameter<unknown>[] = [{
+  private _parametersStore: RcParameter<unknown>[] = [{
     name: 'dark',
     value: true
   }, {
     name: 'round',
     value: false
   }];
+
+  private _parameters = new BehaviorSubject(this._parametersStore);
+
+  public readonly parameters: Observable<RcParameter<unknown>[]> = this._parameters.asObservable();
+
   constructor() { }
 
-  getConfig(): RcParameter<unknown>[] {
-    return this.parameters;
-  }
-
   updateOrAdd<T>(parameter: RcParameter<T>): void {
-    const existingParameter = this.parameters.find(p => p.name === parameter.name);
+    const existingParameter = this._parametersStore.find(p => p.name === parameter.name);
     if (existingParameter) {
       existingParameter.value = parameter.value;
     } else {
-      this.parameters.push(parameter);
+      this._parametersStore.push(parameter);
     }
+    this._parameters.next(this._parametersStore);
   }
 }

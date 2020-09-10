@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RcService } from '../rc.service';
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { RcParameter } from 'src/models/rc';
 
 @Component({
   selector: 'app-main',
@@ -8,11 +11,20 @@ import { RcService } from '../rc.service';
 })
 export class MainComponent implements OnInit {
 
-  darkTheme = false;
+  darkTheme$: Observable<boolean>;
   constructor(private rc: RcService) { }
 
   ngOnInit(): void {
-    this.darkTheme = this.rc.parameters.find(p => p.name === 'dark').value as boolean;
+    this.darkTheme$ = this.rc.parameters.pipe(map(parameters => {
+      console.log(parameters);
+      const param = parameters.find(p => p.name === 'dark') as RcParameter<boolean>;
+
+      if (param) {
+        return param.value;
+      } else {
+        return false;
+      }
+    }));
   }
 
 }

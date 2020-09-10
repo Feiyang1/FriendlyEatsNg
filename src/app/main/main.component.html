@@ -1,4 +1,4 @@
-<div [ngClass]="darkTheme ? 'dark-theme' : ''" class="mat-app-background">
+<div [ngClass]="(darkTheme$ | async) ? 'dark-theme' : ''" class="mat-app-background">
     <mat-toolbar color='primary'>
         <span>FriendlyEats</span>
     </mat-toolbar>

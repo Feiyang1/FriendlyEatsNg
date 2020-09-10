@@ -1,7 +1,7 @@
 <div class="content">
     <div fxLayout="row wrap" fxLayoutGap="10px grid">
         <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="50%" fxFlex.md="33%" *ngFor="let res of restaurants" (click)="onSelect(res.id)">
-            <div class="round-container" *ngIf="roundTile(); else square">
+            <div class="round-container" *ngIf="(roundTile$ | async); else square">
                 <div class="round"
                     [ngStyle]="{'background-image': 'url(' + res.photoUrl + ')', 'background-size': 'cover', 'background-position': 'center'}">
                 </div>
@@ -9,7 +9,7 @@
             </div>
 
             <ng-template #square>
-                <mat-card class="mat-elevation-z4" [ngClass]="roundTile() ? 'round' : ''">
+                <mat-card class="mat-elevation-z4" [ngClass]="(roundTile$ | async) ? 'round' : ''">
                     <img mat-card-image [src]="res.photoUrl" />
                     <mat-card-title>{{res.name}}</mat-card-title>
                     <mat-card-content>

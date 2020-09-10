@@ -2,7 +2,7 @@
     <div class="item">
         <div class="label">Parameter key</div>
         <div>
-            <input type="text" [value]="data.name" disabled>
+            <input type="text" [(ngModel)]="data.name" disabled>
         </div>
     </div>
     <div class="item">
@@ -10,11 +10,11 @@
             Default value
         </div>
         <div>
-            <input type="text" [value]="data.value">
+            <input type="text" [(ngModel)]="data.value">
         </div>
     </div>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Cancel</button>
-    <button mat-button class="update">Update</button>
+    <button mat-button class="update" (click)="onUpdate()">Update</button>
 </mat-dialog-actions>

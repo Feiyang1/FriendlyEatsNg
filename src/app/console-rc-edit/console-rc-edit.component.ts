@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { RcParameter } from 'src/models/rc';
 
 @Component({
   selector: 'app-console-rc-edit',
@@ -7,10 +8,12 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./console-rc-edit.component.css']
 })
 export class ConsoleRcEditComponent implements OnInit {
-
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any) { }
+  constructor(public dialogRef: MatDialogRef<ConsoleRcEditComponent>, @Inject(MAT_DIALOG_DATA) public data: RcParameter<unknown>) { }
 
   ngOnInit(): void {
   }
 
+  onUpdate(): void {
+    this.dialogRef.close(this.data);
+  }
 }

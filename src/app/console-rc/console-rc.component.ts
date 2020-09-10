@@ -22,7 +22,12 @@ export class ConsoleRcComponent implements OnInit {
 
   onEdit(param: RcParameter<unknown>): void {
     this.dialog.open(ConsoleRcEditComponent, {
-      data: param
+      // pass a copy
+      data: { ...param }
+    }).afterClosed().subscribe(result => {
+      if(result) {
+        this.rcService.updateOrAdd(result)
+      }
     });
   }
 }

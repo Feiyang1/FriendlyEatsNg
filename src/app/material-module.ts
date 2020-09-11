@@ -5,6 +5,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatFormFieldModule } from '@angular/material/form-field'
 
 @NgModule({
     exports: [
@@ -13,7 +15,9 @@ import { MatDialogModule } from '@angular/material/dialog';
         MatButtonModule,
         MatSidenavModule,
         MatTabsModule,
-        MatDialogModule
+        MatDialogModule,
+        MatStepperModule,
+        MatFormFieldModule
     ]
 })
 export class MaterialModule { }

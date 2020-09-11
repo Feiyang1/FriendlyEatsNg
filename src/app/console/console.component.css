@@ -5,14 +5,18 @@ mat-sidenav {
     background-color: rgb(5 30 52);
     color: white;
     height: 100%;
-    padding: 0.5em;
+    padding: 0.5rem;
 }
 
 mat-sidenav-content {
-    padding: 0.5em;
+    padding: 0.5rem;
 }
 
 .firebase-logo {
-    height: 2em;
-    width: 2em;
+    height: 2rem;
+    width: 2rem;
+}
+
+.product {
+    cursor: pointer;
 }

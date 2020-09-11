@@ -1,27 +1,27 @@
 
 .round-container {
-    margin-bottom: 1.5em;
+    margin-bottom: 1.5rem;
 }
 .round-container .round {
-    height: 10em;
-    width: 10em;
+    height: 10rem;
+    width: 10rem;
     margin: 0 auto;
     border-radius: 50%;
     border: 1px solid white;
 }
 
 .round-container .name {
-    margin-top: 0.8em;
+    margin-top: 0.8rem;
     text-align: center;
 }
 
 .mat-card-image {
-    height: 15em;
+    height: 15rem;
 }
 
 .content {
-    margin-left: 1em;
-    margin-right: 1em;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
 .mat-card-content p {

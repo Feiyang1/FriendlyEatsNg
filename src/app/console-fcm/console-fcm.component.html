@@ -1,0 +1,17 @@
+<div>Cloud Messaging</div>
+<mat-tab-group>
+    <mat-tab label="Notifications">
+        <div class="tab-content">
+            <mat-card>
+                <div class="table-header">
+                    <button mat-raised-button (click)="onNew()" class="new-notification">New notification</button>
+                    <div class="headers">
+                        <div *ngFor="let c of columns" [ngClass]="c | lowercase">
+                            {{c}}
+                        </div>
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+    </mat-tab>
+</mat-tab-group>

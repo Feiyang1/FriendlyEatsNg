@@ -1,8 +1,11 @@
 <mat-sidenav-container>
     <mat-sidenav mode="side" opened>
         <img class="firebase-logo" src="https://www.gstatic.com/mobilesdk/160503_mobilesdk/logo/2x/firebase_28dp.png">
+        <div (click)="onSelect('rc')" class="product">rc</div>
+        <div (click)="onSelect('fcm')" class="product">fcm</div>
     </mat-sidenav>
     <mat-sidenav-content>
-        <app-console-rc></app-console-rc>
+        <app-console-fcm *ngIf="selected === 'fcm'"></app-console-fcm>
+        <app-console-rc *ngIf="selected === 'rc'"></app-console-rc>
     </mat-sidenav-content>
 </mat-sidenav-container>

@@ -1,0 +1,29 @@
+button.new-notification {
+    background-color:#1a73e8;
+    color: #fff;
+    margin-right: -2rem;
+}
+
+.tab-content {
+    padding: 1rem;
+}
+
+.table-header {
+    padding: 0 2.5rem;
+    line-height: 2rem;
+    border-bottom: 1px solid rgba(0,0,0,0.12);
+    color: rgba(0,0,0,.64);
+    background: rgb(250 250 250);
+    font-weight: 500;
+    font-size: 0.8rem;
+    text-align: right;
+}
+
+.headers {
+    display: flex;
+    justify-content: space-between;
+}
+
+mat-card {
+    padding: 0;
+}

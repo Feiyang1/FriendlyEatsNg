@@ -3,7 +3,7 @@
 }
 
 .header .content {
-    max-width: 37.5em;
+    max-width: 37.5rem;
     margin: 0 auto;
 }
 
@@ -14,11 +14,11 @@
 }
 
 .header-row .item {
-    margin-right: 0.5em;
+    margin-right: 0.5rem;
 }
 
 .reviews {
-    max-width: 37.5em;
+    max-width: 37.5rem;
     margin: 0 auto;
 }
 
@@ -28,9 +28,9 @@
     left: 0;
     z-index: 999;
     color: white;
-    font-size: 2em;
-    margin-top: 0.2em;
-    margin-left: 0.2em;
+    font-size: 2rem;
+    margin-top: 0.2rem;
+    margin-left: 0.2rem;
     cursor: pointer;
 }
 

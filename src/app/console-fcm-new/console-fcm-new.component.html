@@ -1,23 +1,47 @@
 <mat-vertical-stepper [linear]="true" #stepper>
-    <mat-step>
-        <ng-template matStepLabel>Fill out your name</ng-template>
-        <div>
-            <button mat-button matStepperNext>Next</button>
-        </div>
+    <mat-step [stepControl]="notificationFormGroup">
+        <form [formGroup]="notificationFormGroup">
+            <ng-template matStepLabel>Notification</ng-template>
+            <div class="item">
+                <div class="label">Notification title</div>
+                <div>
+                    <input type="text" formControlName="titleCtrl" placeholder="Enter optional title">
+                </div>
+            </div>
+            <div class="item">
+                <div class="label">Notification text</div>
+                <div>
+                    <textarea [ngClass]="invalidTextCtrl && textCtrlDirtyOrTouched && 'error'" formControlName="textCtrl"
+                        placeholder="Enter notification text"></textarea>
+                </div>
+                <div class="error-msg" *ngIf="invalidTextCtrl && textCtrlDirtyOrTouched">
+                    <div *ngIf="textCtrl.errors.required">
+                        Notification text is required
+                    </div>
+                </div>
+            </div>
+            <button mat-button matStepperNext [disabled]="invalidTextCtrl">Next</button>
+        </form>
     </mat-step>
     <mat-step>
-        <ng-template matStepLabel>Fill out your address</ng-template>
+        <ng-template matStepLabel>Target</ng-template>
         <div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button matStepperNext>Next</button>
+            <div>condition 1</div>
+            <div>condition 2</div>
         </div>
+        <button mat-button matStepperNext>Next</button>
     </mat-step>
     <mat-step>
-        <ng-template matStepLabel>Done</ng-template>
-        <p>You are now done.</p>
+        <ng-template matStepLabel>Scheduling</ng-template>
         <div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button (click)="stepper.reset()">Reset</button>
+            <div class="label">Send to eligible users</div>
+            <div>
+                <input type="text" value="Now" disabled>
+            </div>
         </div>
     </mat-step>
 </mat-vertical-stepper>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button (click)="onSend()" [disabled]="invalidTextCtrl">Send</button>
+</mat-dialog-actions>

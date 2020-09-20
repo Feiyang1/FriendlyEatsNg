@@ -15,7 +15,7 @@ import { ShellComponent } from './shell/shell.component';
 import { ConsoleRcComponent } from './console-rc/console-rc.component';
 import { MaterialModule } from './material-module';
 import { ConsoleRcEditComponent } from './console-rc-edit/console-rc-edit.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConsoleFcmComponent } from './console-fcm/console-fcm.component';
 import { ConsoleFcmNewComponent } from './console-fcm-new/console-fcm-new.component';
 
@@ -40,7 +40,8 @@ import { ConsoleFcmNewComponent } from './console-fcm-new/console-fcm-new.compon
     BrowserAnimationsModule,
     FlexLayoutModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   entryComponents: [ConsoleRcEditComponent],

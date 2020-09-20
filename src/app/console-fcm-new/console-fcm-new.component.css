@@ -1,0 +1,40 @@
+.label {
+    color: rgba(0,0,0,.54);
+    font-size: 13px;
+    padding-bottom: 0.5rem;
+}
+
+input {
+    box-sizing: border-box;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    border: 0;
+    box-shadow: 0 0 0 2px transparent inset, 0 0 0 1px #e0e0e0 inset;
+    width: 100%;
+}
+
+textarea {
+    background-color: #fff;
+    border: 0;
+    border-radius: 0.25rem;
+    color: rgba(0,0,0,.87);
+    line-height: 1.25rem;
+    margin: 0;
+    padding: 0.5rem;
+    box-shadow: 0 0 0 2px transparent inset, 0 0 0 1px #e0e0e0 inset;
+    overflow: auto;
+    resize: none;
+}
+
+textarea.error {
+    box-shadow: 0 0 0 2px transparent inset, 0 0 0 1px #ff5252 inset;
+}
+
+.item {
+    padding-bottom: 1.5rem;
+}
+
+.error-msg {
+    font-size: 11px;
+    color: #ff5252;
+}

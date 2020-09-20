@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-console-fcm-new',
@@ -7,9 +8,34 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./console-fcm-new.component.css']
 })
 export class ConsoleFcmNewComponent implements OnInit {
-  constructor() { }
+
+  notificationFormGroup: FormGroup;
+  constructor(private _formBuilder: FormBuilder, public dialogRef: MatDialogRef<ConsoleFcmNewComponent>) { }
 
   ngOnInit(): void {
+    this.notificationFormGroup = this._formBuilder.group({
+      titleCtrl: [],
+      textCtrl: ['', Validators.required]
+    });
   }
 
+  get textCtrl() {
+    return this.notificationFormGroup.get('textCtrl');
+  }
+
+  get invalidTextCtrl() {
+    return this.textCtrl.invalid;
+  }
+
+  get textCtrlDirtyOrTouched() {
+    return this.textCtrl.dirty || this.textCtrl.touched;
+  }
+
+  get invalidFormGroup() {
+    return this.invalidTextCtrl;
+  }
+
+  onSend() {
+    this.dialogRef.close();
+  }
 }

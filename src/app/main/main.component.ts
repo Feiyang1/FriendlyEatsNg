@@ -3,6 +3,8 @@ import { RcService } from '../rc.service';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { RcParameter } from 'src/models/rc';
+import { MatDialog } from '@angular/material/dialog';
+import { NotificationsComponent } from '../notifications/notifications.component';
 
 @Component({
   selector: 'app-main',
@@ -12,7 +14,7 @@ import { RcParameter } from 'src/models/rc';
 export class MainComponent implements OnInit {
 
   darkTheme$: Observable<boolean>;
-  constructor(private rc: RcService) { }
+  constructor(private rc: RcService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.darkTheme$ = this.rc.parameters.pipe(map(parameters => {
@@ -25,6 +27,10 @@ export class MainComponent implements OnInit {
         return false;
       }
     }));
+  }
+
+  onNotificationClick() {
+    this.dialog.open(NotificationsComponent);
   }
 
 }

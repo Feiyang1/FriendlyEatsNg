@@ -18,6 +18,7 @@ import { ConsoleRcEditComponent } from './console-rc-edit/console-rc-edit.compon
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConsoleFcmComponent } from './console-fcm/console-fcm.component';
 import { ConsoleFcmNewComponent } from './console-fcm-new/console-fcm-new.component';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ConsoleFcmNewComponent } from './console-fcm-new/console-fcm-new.compon
     ConsoleRcComponent,
     ConsoleRcEditComponent,
     ConsoleFcmComponent,
-    ConsoleFcmNewComponent
+    ConsoleFcmNewComponent,
+    NotificationsComponent
   ],
   imports: [
     BrowserModule,

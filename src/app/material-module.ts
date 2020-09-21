@@ -6,8 +6,11 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatStepperModule } from '@angular/material/stepper';
-import { MatFormFieldModule } from '@angular/material/form-field'
-import { MatInputModule } from '@angular/material/input'
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
     exports: [
@@ -19,7 +22,10 @@ import { MatInputModule } from '@angular/material/input'
         MatDialogModule,
         MatStepperModule,
         MatFormFieldModule,
-        MatInputModule
+        MatInputModule,
+        MatIconModule,
+        MatBadgeModule,
+        MatTooltipModule
     ]
 })
 export class MaterialModule { }

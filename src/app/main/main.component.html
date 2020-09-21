@@ -1,5 +1,6 @@
 <div [ngClass]="(darkTheme$ | async) ? 'dark-theme' : ''" class="mat-app-background">
     <mat-toolbar color='primary'>
+        <mat-icon matBadge="8" matBadgePosition="after" matBadgeColor="accent" (click)="onNotificationClick()">notifications_none</mat-icon>
         <span>FriendlyEats</span>
     </mat-toolbar>
     <app-restaurants></app-restaurants>

@@ -10,7 +10,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
-import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
     exports: [
@@ -24,8 +23,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
         MatFormFieldModule,
         MatInputModule,
         MatIconModule,
-        MatBadgeModule,
-        MatTooltipModule
+        MatBadgeModule
     ]
 })
 export class MaterialModule { }

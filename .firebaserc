@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "friendlyeats-2020-io"
+  },
+  "targets": {
+    "friendlyeats-2020-io": {
+      "hosting": {
+        "fireconf": [
+          "fireconf"
+        ]
+      }
+    }
   }
 }

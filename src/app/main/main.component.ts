@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { RcParameter } from 'src/models/rc';
 import { MatDialog } from '@angular/material/dialog';
 import { NotificationsComponent } from '../notifications/notifications.component';
+import { MessagesService } from '../messages.service';
 
 @Component({
   selector: 'app-main',
@@ -14,7 +15,7 @@ import { NotificationsComponent } from '../notifications/notifications.component
 export class MainComponent implements OnInit {
 
   darkTheme$: Observable<boolean>;
-  constructor(private rc: RcService, private dialog: MatDialog) { }
+  constructor(private rc: RcService, private messages: MessagesService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.darkTheme$ = this.rc.parameters.pipe(map(parameters => {
@@ -31,6 +32,10 @@ export class MainComponent implements OnInit {
 
   onNotificationClick() {
     this.dialog.open(NotificationsComponent);
+  }
+
+  get numOfNotifications() {
+    return this.messages.messagesHistory.length;
   }
 
 }

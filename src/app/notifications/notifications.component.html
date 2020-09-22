@@ -1,4 +1,5 @@
-<p>notifications 1</p>
-<p>notifications 2</p>
-<p>notifications 3</p>
-<p>notifications 4</p>
+<div *ngFor="let notification of notifications">
+    <div *ngIf="notification.title">{{notification.title}}</div>
+    <div>{{notification.text}}</div>
+    <div>received at {{notification.timestamp | date:'short'}}</div>
+</div>

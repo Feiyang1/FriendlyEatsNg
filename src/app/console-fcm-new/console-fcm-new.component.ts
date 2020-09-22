@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { Message } from 'src/models/message';
+import { MessagesService } from '../messages.service';
 
 @Component({
   selector: 'app-console-fcm-new',
@@ -10,7 +12,11 @@ import { MatDialogRef } from '@angular/material/dialog';
 export class ConsoleFcmNewComponent implements OnInit {
 
   notificationFormGroup: FormGroup;
-  constructor(private _formBuilder: FormBuilder, public dialogRef: MatDialogRef<ConsoleFcmNewComponent>) { }
+  constructor(
+    private messagesService: MessagesService,
+    private _formBuilder: FormBuilder,
+    public dialogRef: MatDialogRef<ConsoleFcmNewComponent>
+  ) { }
 
   ngOnInit(): void {
     this.notificationFormGroup = this._formBuilder.group({
@@ -35,7 +41,21 @@ export class ConsoleFcmNewComponent implements OnInit {
     return this.invalidTextCtrl;
   }
 
+  get titleCtrl() {
+    return this.notificationFormGroup.get('titleCtrl');
+  }
+
   onSend() {
+    console.log(this.createMessage());
+    this.messagesService.send(this.createMessage());
     this.dialogRef.close();
+  }
+
+  private createMessage(): Message {
+    return {
+      title: this.titleCtrl.value,
+      text: this.textCtrl.value,
+      timestamp: new Date().getTime()
+    };
   }
 }

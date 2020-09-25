@@ -1,7 +1,13 @@
+.actions {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 0.5rem;
+}
+
 button.new-notification {
     background-color:#1a73e8;
     color: #fff;
-    margin-right: -2rem;
 }
 
 .tab-content {
@@ -19,9 +25,18 @@ button.new-notification {
     text-align: right;
 }
 
-.headers {
+.headers, .row {
     display: flex;
     justify-content: space-between;
+    text-align: left;
+}
+
+.notification {
+    flex-grow: 2;
+}
+
+.status, .platform, .send {
+    flex-grow: 1;
 }
 
 mat-card {
@@ -30,4 +45,5 @@ mat-card {
 
 .table-content {
     min-height: 2rem;
+    padding: 1rem 2.5rem 0 2.5rem;
 }

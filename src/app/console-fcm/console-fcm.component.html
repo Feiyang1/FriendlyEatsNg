@@ -2,17 +2,37 @@
 <mat-tab-group>
     <mat-tab label="Notifications">
         <div class="tab-content">
-            <mat-card>
-                <div class="table-header">
-                    <button mat-raised-button (click)="onNew()" class="new-notification">New notification</button>
-                    <div class="headers">
-                        <div *ngFor="let c of columns" [ngClass]="c | lowercase">
-                            {{c}}
-                        </div>
-                    </div>
-                </div>
-                <div class="table-content"></div>
-            </mat-card>
+            <div class="actions">
+                <button mat-raised-button (click)="onNew()" class="new-notification">New notification</button>
+            </div>
+            
+            <mat-table [dataSource]="notificationHistory" class="mat-elevation-z8">
+                <!-- Notification Definition -->
+                <ng-container matColumnDef="text">
+                    <mat-header-cell *matHeaderCellDef> Notification </mat-header-cell>
+                    <mat-cell *matCellDef="let row"> {{row.text}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="status">
+                    <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+                    <mat-cell *matCellDef="let row"> {{row.status}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="platform">
+                    <mat-header-cell *matHeaderCellDef> Platform </mat-header-cell>
+                    <mat-cell *matCellDef="let row"> {{row.platform}} </mat-cell>
+                </ng-container>
+
+                <!-- Send Definition -->
+                <ng-container matColumnDef="timestamp">
+                    <mat-header-cell *matHeaderCellDef> Send </mat-header-cell>
+                    <mat-cell *matCellDef="let row"> {{row.timestamp | date:'short'}} </mat-cell>
+                </ng-container>
+
+                <!-- Header and Row Declarations -->
+                <mat-header-row *matHeaderRowDef="['text', 'status', 'platform', 'timestamp']"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: ['text', 'status', 'platform', 'timestamp']"></mat-row>
+            </mat-table>
         </div>
     </mat-tab>
 </mat-tab-group>

@@ -14,7 +14,7 @@ export class MessagesService {
 
   send(msg: Message) {
     this._messages.next(msg);
-    this._messagesHistory.push(msg);
+    this._messagesHistory = [...this._messagesHistory, msg];
   }
 
   get messagesHistory() {

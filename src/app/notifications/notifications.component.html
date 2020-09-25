@@ -3,3 +3,5 @@
     <div>{{notification.text}}</div>
     <div>received at {{notification.timestamp | date:'short'}}</div>
 </div>
+
+<div *ngIf="notifications.length === 0">There is no messages</div>

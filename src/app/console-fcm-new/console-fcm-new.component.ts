@@ -55,7 +55,9 @@ export class ConsoleFcmNewComponent implements OnInit {
     return {
       title: this.titleCtrl.value,
       text: this.textCtrl.value,
-      timestamp: new Date().getTime()
+      timestamp: new Date().getTime(),
+      status: 'Completed',
+      platform: 'Web'
     };
   }
 }

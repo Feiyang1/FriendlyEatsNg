@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ConsoleFcmNewComponent } from '../console-fcm-new/console-fcm-new.component';
+import { MessagesService } from '../messages.service';
 
 @Component({
   selector: 'app-console-fcm',
@@ -14,7 +15,7 @@ export class ConsoleFcmComponent implements OnInit {
     "Platform",
     "Send"
   ]
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog, public messages: MessagesService) { }
 
   ngOnInit(): void {
   }
@@ -23,4 +24,7 @@ export class ConsoleFcmComponent implements OnInit {
     this.dialog.open(ConsoleFcmNewComponent);
   }
 
+  get notificationHistory() {
+    return this.messages.messagesHistory;
+  }
 }

@@ -3,4 +3,6 @@ export interface Message {
     text: string;
     target?: unknown;
     timestamp: number;
+    status: string;
+    platform: string;
 }

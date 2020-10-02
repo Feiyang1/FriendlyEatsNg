@@ -31,11 +31,13 @@ export class MainComponent implements OnInit {
   }
 
   onNotificationClick() {
-    this.dialog.open(NotificationsComponent);
+    this.dialog.open(NotificationsComponent).afterClosed().subscribe(() => {
+      this.messages.resetUnreadMessage();
+    });
   }
 
   get numOfNotifications() {
-    return this.messages.messagesHistory.length;
+    return this.messages.unreadMessage.length;
   }
 
 }

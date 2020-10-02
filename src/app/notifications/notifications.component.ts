@@ -16,7 +16,7 @@ export class NotificationsComponent implements OnInit {
   }
 
   get notifications() {
-    return this.messagesService.messagesHistory;
+    return this.messagesService.unreadMessage;
   }
 
 }

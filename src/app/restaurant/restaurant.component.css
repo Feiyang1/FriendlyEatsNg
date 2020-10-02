@@ -5,6 +5,7 @@
 .header .content {
     max-width: 37.5rem;
     margin: 0 auto;
+    padding-bottom: 1rem;
 }
 
 .header-row {
@@ -36,4 +37,21 @@
 
 .container {
     position: relative;
+}
+
+.review {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.6rem;
+    padding-top: 1rem;
+}
+
+.review .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.review .author {
+    font-size: 14px;
+    color: #999;
 }

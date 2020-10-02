@@ -25,13 +25,12 @@
         </div>
     </div>
     <div class="reviews">
-        <div *ngFor="let rev of restaurant.reviews">
-            <div>
-                <div>{{rev.userName}}</div>
-                <div>{{star}}</div>
+        <div *ngFor="let rev of restaurant.reviews" class="review">
+            <div class="row">
+                <div class="author">{{rev.userName}}</div>
+                <div>{{rev.star | star}}</div>
             </div>
-            <div>{{rev.comment}}</div>
-            <div>------------------------</div>
+            <div class="row">{{rev.comment}}</div>
         </div>
     </div>
 

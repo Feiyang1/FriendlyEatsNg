@@ -15,19 +15,9 @@ import { MessagesService } from '../messages.service';
 export class MainComponent implements OnInit {
 
   darkTheme$: Observable<boolean>;
-  constructor(private rc: RcService, private messages: MessagesService, private dialog: MatDialog) { }
+  constructor(private messages: MessagesService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.darkTheme$ = this.rc.parameters.pipe(map(parameters => {
-      console.log(parameters);
-      const param = parameters.find(p => p.name === 'dark') as RcParameter<boolean>;
-
-      if (param) {
-        return param.value;
-      } else {
-        return false;
-      }
-    }));
   }
 
   onNotificationClick() {

@@ -7,7 +7,7 @@
         <mat-sidenav #drawer mode="side" opened>
             <app-console></app-console>
         </mat-sidenav>
-        <mat-sidenav-content>
+        <mat-sidenav-content [ngClass]="(darkTheme$ | async) ? 'dark-theme' : ''" class="mat-app-background">
             <router-outlet></router-outlet>
         </mat-sidenav-content>
     </mat-sidenav-container>

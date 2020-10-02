@@ -24,8 +24,12 @@
     margin-right: 1rem;
 }
 
-.mat-card-content p {
+.mat-card-content div {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.mat-card-content div:first-child {
+    margin-bottom: 0.5rem;
 }

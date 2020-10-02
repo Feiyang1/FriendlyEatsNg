@@ -13,11 +13,10 @@
                     <img mat-card-image [src]="res.photoUrl" />
                     <mat-card-title>{{res.name}}</mat-card-title>
                     <mat-card-content>
-                        <p>{{res.description}}</p>
+                        <div>{{res.averageStar | star}}</div>
+                        <div>{{res.category}} &#x2022; {{res.city}}</div>
+                        <div>{{res.description}}</div>
                     </mat-card-content>
-                    <mat-card-actions>
-                        <button mat-button>LIKE</button> <button mat-button>SHARE</button>
-                    </mat-card-actions>
                 </mat-card>
             </ng-template>
 

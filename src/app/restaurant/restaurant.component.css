@@ -18,9 +18,15 @@
     margin-right: 0.5rem;
 }
 
+.header-row.add-review {
+    height: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
 .reviews {
     max-width: 37.5rem;
-    margin: 0 auto;
+    margin: 1rem auto;
 }
 
 .xmark {

@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RcService } from '../rc.service';
-import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { RcParameter } from 'src/models/rc';
 import { MatDialog } from '@angular/material/dialog';
 import { NotificationsComponent } from '../notifications/notifications.component';
 import { MessagesService } from '../messages.service';

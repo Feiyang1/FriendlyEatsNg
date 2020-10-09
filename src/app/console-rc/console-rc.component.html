@@ -20,7 +20,9 @@
                 <div *ngFor="let param of parameters$ | async" class="table-row">
                     <div class="name">{{param.name}}</div>
                     <div class="value">{{param.value}}</div>
-                    <div class="edit" (click)="onEdit(param)">edit</div>
+                    <div class="edit" (click)="onEdit(param)">
+                        <mat-icon>edit</mat-icon>
+                    </div>
                 </div>
             </mat-card>
         </div>

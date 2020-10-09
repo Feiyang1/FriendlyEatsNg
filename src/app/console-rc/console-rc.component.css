@@ -25,6 +25,8 @@
 .edit {
     display: none;
     cursor: pointer;
+    color: rgba(0, 0, 0, 0.54);
+    height: 1.5rem;
 }
 
 .table-row:hover .edit {
@@ -34,6 +36,7 @@
 .table-row {
     display: flex;
     padding: 1rem 2.5rem 1rem 2.5rem;
+    line-height: 1.5rem;
 }
 
 .table-row:hover {

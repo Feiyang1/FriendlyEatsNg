@@ -19,6 +19,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConsoleFcmComponent } from './console-fcm/console-fcm.component';
 import { ConsoleFcmNewComponent } from './console-fcm-new/console-fcm-new.component';
 import { NotificationsComponent } from './notifications/notifications.component';
+import { AddReviewComponent } from './add-review/add-review.component';
+import { StarRatingComponent } from './star-rating/star-rating.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { NotificationsComponent } from './notifications/notifications.component'
     ConsoleRcEditComponent,
     ConsoleFcmComponent,
     ConsoleFcmNewComponent,
-    NotificationsComponent
+    NotificationsComponent,
+    AddReviewComponent,
+    StarRatingComponent
   ],
   imports: [
     BrowserModule,

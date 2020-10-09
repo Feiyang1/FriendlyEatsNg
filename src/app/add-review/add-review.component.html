@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Add a Review</h1>
+<mat-dialog-content>
+    <app-star-rating [total]="5" [score]="1" (scoreChanged)="onRatingChanged($event)"></app-star-rating>
+    <div class="comment">
+        <mat-form-field>
+            <mat-label>Leave a comment</mat-label>
+            <textarea matInput [(ngModel)]="review.comment"></textarea>
+        </mat-form-field>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button class="save" (click)="onSave()">Save</button>
+</mat-dialog-actions>

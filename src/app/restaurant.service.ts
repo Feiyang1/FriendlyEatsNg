@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Restaurant } from 'src/models/restaurant';
+import { Restaurant, Review } from 'src/models/restaurant';
 import { generateMockRestaurants } from 'src/mocks';
 
 @Injectable({
@@ -11,5 +11,12 @@ export class RestaurantService {
 
   getRestaurants(): Restaurant[] {
     return this.restaurants;
+  }
+
+  addReview(restaurantId: number, review: Review): void {
+    const res = this.restaurants.find(r => r.id === restaurantId);
+    if (res) {
+      res.reviews.push(review);
+    }
   }
 }

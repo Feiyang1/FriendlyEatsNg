@@ -1,0 +1,16 @@
+mat-dialog-content {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.comment {
+    padding-top: 1rem;
+    margin-top: 0.5rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.42);
+    min-width: 500px;
+}
+
+.comment mat-form-field {
+    width: 100%;
+}

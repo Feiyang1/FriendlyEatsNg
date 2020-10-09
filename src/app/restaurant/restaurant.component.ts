@@ -1,8 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Restaurant } from 'src/models/restaurant';
+import { Restaurant, Star } from 'src/models/restaurant';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RestaurantService } from '../restaurant.service';
-import { RcService } from '../rc.service';
+import { MatDialog } from '@angular/material/dialog';
+import { AddReviewComponent } from '../add-review/add-review.component';
 
 @Component({
   selector: 'app-restaurant',
@@ -10,13 +11,14 @@ import { RcService } from '../rc.service';
   styleUrls: ['./restaurant.component.css']
 })
 export class RestaurantComponent implements OnInit {
-  
+
   @Input()
   restaurant: Restaurant | undefined;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private restaurantService: RestaurantService
+    private restaurantService: RestaurantService,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -28,4 +30,16 @@ export class RestaurantComponent implements OnInit {
     this.router.navigate(['']);
   }
 
+  onAddReview(): void {
+    this.dialog.open(AddReviewComponent).afterClosed().subscribe((result?: { rating: number, comment: string }) => {
+      if (result) {
+        this.restaurantService.addReview(this.restaurant.id, {
+          star: result.rating as Star,
+          comment: result.comment,
+          userName: 'Me',
+          timestamp: new Date()
+        });
+      }
+    });
+  }
 }

@@ -1,0 +1,14 @@
+.score, .rest {
+    display: flex;
+    flex-direction: row;
+}
+
+mat-icon {
+    cursor: pointer;
+}
+
+.stars {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

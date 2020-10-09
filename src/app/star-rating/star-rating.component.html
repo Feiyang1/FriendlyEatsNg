@@ -1,0 +1,5 @@
+<div class="stars">
+    <mat-icon *ngFor="let ii of [].constructor(total); let i = index" (click)="onClick(i+1)" [ngClass]="i<score && 'selected'">
+        {{i < score ? 'start' : 'star_border'}}
+    </mat-icon>
+</div>

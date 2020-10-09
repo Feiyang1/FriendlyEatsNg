@@ -3,11 +3,9 @@
         <!-- <button mat-raised-button (click)="drawer.toggle()">Console</button> -->
         <span>Firebase for Web demo</span>
     </mat-toolbar>
-    <mat-sidenav-container>
-        <mat-sidenav #drawer mode="side" opened>
-            <app-console></app-console>
-        </mat-sidenav>
-        <mat-sidenav-content [ngClass]="(darkTheme$ | async) ? 'dark-theme' : ''" class="mat-app-background">
+    <div class="content">
+        <app-console></app-console>
+        <div [ngClass]="(darkTheme$ | async) ? 'dark-theme' : ''" class="mat-app-background friendly-eats">
             <div class="loading" *ngIf="fakeLoading$ | async else elseBlock">
                 <mat-spinner></mat-spinner>
                 &nbsp;
@@ -18,6 +16,6 @@
             <ng-template #elseBlock>
                 <router-outlet></router-outlet>
             </ng-template>
-        </mat-sidenav-content>
-    </mat-sidenav-container>
+        </div>
+    </div>
 </div>

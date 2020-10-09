@@ -4,29 +4,20 @@
 
 .shell .content{
     display: flex;
-}
-
-.shell .mat-drawer-content {
-    overflow: visible;
-}
-
-.shell .mat-drawer {
-    overflow: visible;
-}
-
-mat-sidenav {
-    width: 40%;
-}
-
-mat-sidenav-container {
-    height: 100%;
-}
-
-mat-sidenav-content {
-    display: flex;
-    justify-content: center;
+    flex-direction: row;
+    min-height: 100%;
 }
 
 .loading {
     align-self: center;
+}
+
+app-console {
+    width: 40%;
+}
+
+.friendly-eats {
+    width: 60%;
+    display: flex;
+    justify-content: center;
 }

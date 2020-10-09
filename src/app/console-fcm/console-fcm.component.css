@@ -47,3 +47,8 @@ mat-card {
     min-height: 2rem;
     padding: 1rem 2.5rem 0 2.5rem;
 }
+
+.product-name {
+    color: rgb(27, 58, 87);
+    font-size: 32px;
+}

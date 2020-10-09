@@ -2,8 +2,8 @@
     display: flex;
     padding: 0 2.5rem;
     line-height: 2rem;
-    border-bottom: 1px solid rgba(0,0,0,0.12);
-    color: rgba(0,0,0,.64);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    color: rgba(0, 0, 0, .64);
     background: rgb(250 250 250);
     font-weight: 500;
     font-size: 0.8rem;
@@ -37,11 +37,11 @@
 }
 
 .table-row:hover {
-    background: rgba(0,0,0,0.04);
+    background: rgba(0, 0, 0, 0.04);
 }
 
 .table-row:not(:last-child) {
-    border-bottom: 1px solid rgba(0,0,0,0.12);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 mat-card {
@@ -50,4 +50,22 @@ mat-card {
 
 button {
     margin-bottom: 0.5rem;
+    background-color: #1a73e8;
+    color: #fff;
+}
+
+.product-name {
+    color: rgb(27, 58, 87);
+    font-size: 32px;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.actions mat-icon {
+    color: rgb(71, 98, 130);
+    margin-left: 0.8rem;
 }

@@ -9,7 +9,6 @@
 mat-toolbar {
     justify-content: space-between;
     margin-bottom: 1rem;
-    border-top: 1px solid;
 }
 
 mat-icon {

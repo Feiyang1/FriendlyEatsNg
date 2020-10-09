@@ -8,7 +8,16 @@
             <app-console></app-console>
         </mat-sidenav>
         <mat-sidenav-content [ngClass]="(darkTheme$ | async) ? 'dark-theme' : ''" class="mat-app-background">
-            <router-outlet></router-outlet>
+            <div class="loading" *ngIf="fakeLoading$ | async else elseBlock">
+                <mat-spinner></mat-spinner>
+                &nbsp;
+                <div>
+                    Reloading...
+                </div>
+            </div>
+            <ng-template #elseBlock>
+                <router-outlet></router-outlet>
+            </ng-template>
         </mat-sidenav-content>
     </mat-sidenav-container>
 </div>

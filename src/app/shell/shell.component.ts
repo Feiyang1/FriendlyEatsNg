@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, timer } from 'rxjs';
+import { map, skip, switchMap, take } from 'rxjs/operators';
 import { RcParameter } from 'src/models/rc';
 import { RcService } from '../rc.service';
 
@@ -11,6 +11,7 @@ import { RcService } from '../rc.service';
 })
 export class ShellComponent implements OnInit {
   darkTheme$: Observable<boolean>;
+  fakeLoading$: Observable<boolean>;
   constructor(private rc: RcService) { }
 
   ngOnInit(): void {
@@ -24,6 +25,10 @@ export class ShellComponent implements OnInit {
         return false;
       }
     }));
+
+    this.fakeLoading$ = this.rc.parameters.pipe(skip(1), switchMap(_val => {
+      return timer(0, 1000).pipe(take(2), map(i => i === 0)); // return true, then false;
+    }))
   }
 
 }

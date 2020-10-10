@@ -22,7 +22,7 @@ export class RestaurantsComponent implements OnInit {
 
   ngOnInit(): void {
     this.roundTile$ = this.rc.parameters.pipe(map(parameters => {
-      const param = parameters.find(p => p.name === 'round') as RcParameter<boolean>;
+      const param = parameters.find(p => p.name === 'rounded') as RcParameter<boolean>;
       if (param) {
         return param.value;
       } else {

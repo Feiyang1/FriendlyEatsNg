@@ -11,7 +11,7 @@ export class RcService {
     name: 'dark',
     value: true
   }, {
-    name: 'round',
+    name: 'rounded',
     value: false
   }];
 

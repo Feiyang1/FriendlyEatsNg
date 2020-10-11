@@ -17,6 +17,7 @@
 
 .mat-card-image {
     height: 15rem;
+    object-fit: cover;
 }
 
 .content {

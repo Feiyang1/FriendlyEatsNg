@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { RestaurantService } from '../restaurant.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AddReviewComponent } from '../add-review/add-review.component';
+import { FakeAnalyticsService } from '../fake-analytics.service';
 
 @Component({
   selector: 'app-restaurant',
@@ -18,7 +19,8 @@ export class RestaurantComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private restaurantService: RestaurantService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private analyticsService: FakeAnalyticsService
   ) { }
 
   ngOnInit(): void {
@@ -39,6 +41,8 @@ export class RestaurantComponent implements OnInit {
           userName: 'Me',
           timestamp: new Date()
         });
+
+        this.analyticsService.wroteReview = true;
       }
     });
   }

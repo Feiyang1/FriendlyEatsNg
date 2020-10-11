@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Message } from 'src/models/message';
+import { Audience } from '../fake-analytics.service';
 import { MessagesService } from '../messages.service';
 
 @Component({
@@ -12,6 +13,17 @@ import { MessagesService } from '../messages.service';
 export class ConsoleFcmNewComponent implements OnInit {
 
   notificationFormGroup: FormGroup;
+  audience: Audience = Audience.All;
+  audienceOptions = [
+    {
+      name: 'All users',
+      value: Audience.All
+    },
+    {
+      name: 'People who has submitted reviews',
+      value: Audience.Reviewers
+    }
+  ];
   constructor(
     private messagesService: MessagesService,
     private _formBuilder: FormBuilder,
@@ -52,12 +64,16 @@ export class ConsoleFcmNewComponent implements OnInit {
   }
 
   private createMessage(): Message {
+    console.log('audience', this.audience);
     return {
       title: this.titleCtrl.value,
       text: this.textCtrl.value,
       timestamp: new Date().getTime(),
       status: 'Completed',
-      platform: 'Web'
+      platform: 'Web',
+      target: {
+        audience: this.audience
+      }
     };
   }
 }

@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConsoleComponent implements OnInit {
 
-  selected: Product = Product.RC;
+  selected: Product = Product.FCM;
   constructor() { }
 
   ngOnInit(): void {

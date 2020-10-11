@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { Message } from '../models/message';
+import { Audience, FakeAnalyticsService } from './fake-analytics.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,12 +12,17 @@ export class MessagesService {
   private _messages = new Subject<Message>();
   public readonly messages: Observable<Message> = this._messages.asObservable();
 
-  constructor() { }
+  constructor(private _analyticsService: FakeAnalyticsService) { }
 
   send(msg: Message) {
     this._messages.next(msg);
     this._messagesHistory = [...this._messagesHistory, msg];
-    this._unreadMessages = [...this._unreadMessages, msg];
+
+    // only send the message to the demo app if it fits the targetting condition
+    if (msg.target.audience === Audience.All
+      || (msg.target.audience === Audience.Reviewers && this._analyticsService.wroteReview)) {
+      this._unreadMessages = [...this._unreadMessages, msg];
+    }
   }
 
   resetUnreadMessage() {

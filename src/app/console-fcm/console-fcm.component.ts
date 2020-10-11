@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ConsoleFcmNewComponent } from '../console-fcm-new/console-fcm-new.component';
+import { FakeAnalyticsService } from '../fake-analytics.service';
 import { MessagesService } from '../messages.service';
 
 @Component({

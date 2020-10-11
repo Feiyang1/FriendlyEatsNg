@@ -11,8 +11,8 @@
             <div class="item">
                 <div class="label">Notification text</div>
                 <div>
-                    <textarea [ngClass]="invalidTextCtrl && textCtrlDirtyOrTouched && 'error'" formControlName="textCtrl"
-                        placeholder="Enter notification text"></textarea>
+                    <textarea [ngClass]="invalidTextCtrl && textCtrlDirtyOrTouched && 'error'"
+                        formControlName="textCtrl" placeholder="Enter notification text"></textarea>
                 </div>
                 <div class="error-msg" *ngIf="invalidTextCtrl && textCtrlDirtyOrTouched">
                     <div *ngIf="textCtrl.errors.required">
@@ -26,8 +26,36 @@
     <mat-step>
         <ng-template matStepLabel>Target</ng-template>
         <div>
-            <div>condition 1</div>
-            <div>condition 2</div>
+            <div>Target user if...</div>
+            <div class="conditions">
+                <div class="condition">
+                    <div>App</div>
+                    <div>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Select an app</mat-label>
+                        <mat-select [value]="'demo'" disabled>
+                            <mat-option [value]="'demo'">
+                                Friendly Eats Demo
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    </div>
+                </div>
+                <div class="condition">
+                    <div>User audience</div>
+                    <div>
+                        <mat-form-field>
+                            <mat-label>Select audience</mat-label>
+                            <mat-select [(value)]="audience">
+                                <mat-option *ngFor="let op of audienceOptions" [value]="op.value">
+                                    {{op.name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+
         </div>
         <button mat-button matStepperNext>Next</button>
     </mat-step>

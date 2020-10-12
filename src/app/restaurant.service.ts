@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Restaurant, Review } from 'src/models/restaurant';
+import { Restaurant, RestaurantImpl, Review } from 'src/models/restaurant';
 import { generateMockRestaurants } from 'src/mocks';
 import { PersistenceService } from './persistence.service';
 import { BehaviorSubject } from 'rxjs';
@@ -20,7 +20,7 @@ export class RestaurantService {
     const appState = await this.persistenceService.getAppState();
 
     if (appState && appState.restaurants) {
-      this.currentRestaurants = appState.restaurants;
+      this.currentRestaurants = appState.restaurants.map(deserializeRestaurant);
     } else {
       this.currentRestaurants = generateMockRestaurants(10);
       this.save();
@@ -41,4 +41,8 @@ export class RestaurantService {
       restaurants: this.currentRestaurants
     });
   }
+}
+
+function deserializeRestaurant(res: Restaurant): RestaurantImpl {
+  return new RestaurantImpl(res.id, res.name, res.category, res.city, res.price, res.description, res.photoUrl, res.reviews);
 }

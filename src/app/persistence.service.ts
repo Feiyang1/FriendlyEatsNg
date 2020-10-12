@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { openDB, IDBPDatabase } from 'idb';
+import { Restaurant, RestaurantImpl } from 'src/models/restaurant';
 import { AnalyticsState, AppState, FCMState, RCState } from 'src/models/state';
 
 const DB_NAME = 'FIRENDLYEATS_DEMO_DATABASE';
@@ -15,7 +16,7 @@ const ANALYTICS_STATE_KEY = 'analytics';
 })
 export class PersistenceService {
   private _dbPromise!: Promise<IDBPDatabase>;
-  constructor() { 
+  constructor() {
     this.init();
   }
 

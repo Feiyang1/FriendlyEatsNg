@@ -1,33 +1,58 @@
 import { Injectable } from '@angular/core';
 import { RcParameter } from 'src/models/rc';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { PersistenceService } from './persistence.service';
+
+const DEFAULT_PARAMETERS = [{
+  name: 'dark',
+  value: true
+}, {
+  name: 'rounded',
+  value: false
+}];
 
 @Injectable({
   providedIn: 'root'
 })
 export class RcService {
 
-  private _parametersStore: RcParameter<unknown>[] = [{
-    name: 'dark',
-    value: true
-  }, {
-    name: 'rounded',
-    value: false
-  }];
+  private currentParameters: RcParameter<unknown>[] = [];
 
-  private _parameters = new BehaviorSubject(this._parametersStore);
+  private _parameters = new BehaviorSubject(this.currentParameters);
 
   public readonly parameters: Observable<RcParameter<unknown>[]> = this._parameters.asObservable();
 
-  constructor() { }
+  constructor(private persistenceService: PersistenceService) {
+    this.init();
+  }
+
+  private async init() {
+    const rcState = await this.persistenceService.getRCState();
+
+    if (rcState) {
+      this.currentParameters = rcState.parameters;
+    } else {
+      this.currentParameters = DEFAULT_PARAMETERS;
+      this.save();
+    }
+
+    this._parameters.next(this.currentParameters);
+  }
 
   updateOrAdd<T>(parameter: RcParameter<T>): void {
-    const existingParameter = this._parametersStore.find(p => p.name === parameter.name);
+    const existingParameter = this.currentParameters.find(p => p.name === parameter.name);
     if (existingParameter) {
       existingParameter.value = parameter.value;
     } else {
-      this._parametersStore.push(parameter);
+      this.currentParameters.push(parameter);
     }
-    this._parameters.next(this._parametersStore);
+    this._parameters.next(this.currentParameters);
+    this.save();
+  }
+
+  private save() {
+    return this.persistenceService.setRCState({
+      parameters: this.currentParameters
+    });
   }
 }

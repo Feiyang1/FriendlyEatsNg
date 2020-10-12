@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { openDB, IDBPDatabase } from 'idb';
-import { AppState, ConsoleState } from 'src/models/state';
+import { AnalyticsState, AppState, FCMState, RCState } from 'src/models/state';
 
 const DB_NAME = 'FIRENDLYEATS_DEMO_DATABASE';
 const STORE_NAME = 'FIRENDLYEATS_DEMO_STORE';
 const VERSION = 1;
 const APP_STATE_KEY = 'app';
-const CONSOLE_STATE_KEY = 'console';
+const RC_STATE_KEY = 'rc';
+const FCM_STATE_KEY = 'fcm';
+const ANALYTICS_STATE_KEY = 'analytics';
 
 @Injectable({
   providedIn: 'root'
@@ -38,14 +40,34 @@ export class PersistenceService {
     return db.put(STORE_NAME, state, APP_STATE_KEY);
   }
 
-  async getConsoleState(): Promise<ConsoleState | undefined> {
+  async getRCState(): Promise<RCState | undefined> {
     const db = await this._dbPromise;
-    return db.transaction(STORE_NAME).objectStore(STORE_NAME).get('console');
+    return db.transaction(STORE_NAME).objectStore(STORE_NAME).get(RC_STATE_KEY);
   }
 
-  async setConsoleState(state: ConsoleState) {
+  async setRCState(state: RCState) {
     const db = await this._dbPromise;
-    return db.put(STORE_NAME, state, CONSOLE_STATE_KEY);
+    return db.put(STORE_NAME, state, RC_STATE_KEY);
+  }
+
+  async getFCMState(): Promise<FCMState | undefined> {
+    const db = await this._dbPromise;
+    return db.transaction(STORE_NAME).objectStore(STORE_NAME).get(FCM_STATE_KEY);
+  }
+
+  async setFCMState(state: FCMState) {
+    const db = await this._dbPromise;
+    return db.put(STORE_NAME, state, FCM_STATE_KEY);
+  }
+
+  async getAnalyticsState(): Promise<AnalyticsState | undefined> {
+    const db = await this._dbPromise;
+    return db.transaction(STORE_NAME).objectStore(STORE_NAME).get(ANALYTICS_STATE_KEY);
+  }
+
+  async setAnalyticsState(state: AnalyticsState) {
+    const db = await this._dbPromise;
+    return db.put(STORE_NAME, state, ANALYTICS_STATE_KEY);
   }
 
 }

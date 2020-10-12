@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Restaurant, Star } from 'src/models/restaurant';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RestaurantService } from '../restaurant.service';
@@ -13,7 +13,6 @@ import { FakeAnalyticsService } from '../fake-analytics.service';
 })
 export class RestaurantComponent implements OnInit {
 
-  @Input()
   restaurant: Restaurant | undefined;
   constructor(
     private router: Router,
@@ -25,7 +24,9 @@ export class RestaurantComponent implements OnInit {
 
   ngOnInit(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.restaurant = this.restaurantService.getRestaurants().find(r => r.id === id);
+    this.restaurantService.restaurants.subscribe(restaurants => {
+      this.restaurant = restaurants.find(r => r.id === id);
+    })
   }
 
   onCancel(): void {

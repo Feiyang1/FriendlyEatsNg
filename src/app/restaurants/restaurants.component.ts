@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Restaurant } from '../../models/restaurant';
 import { Router } from '@angular/router';
 import { RestaurantService } from '../restaurant.service';
 import { RcService } from '../rc.service';
@@ -14,10 +13,12 @@ import { RcParameter } from 'src/models/rc';
 })
 export class RestaurantsComponent implements OnInit {
 
-  restaurants: Restaurant[];
   roundTile$: Observable<boolean>;
-  constructor(private router: Router, restaurantService: RestaurantService, private rc: RcService) { 
-    this.restaurants = restaurantService.getRestaurants();
+  constructor(private router: Router, private restaurantService: RestaurantService, private rc: RcService) {
+  }
+
+  get restaurants() {
+    return this.restaurantService.restaurants;
   }
 
   ngOnInit(): void {

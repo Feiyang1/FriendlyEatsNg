@@ -1,6 +1,6 @@
 <div class="content">
     <div fxLayout="row wrap" fxLayoutGap="10px grid">
-        <div fxFlex="33%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="50%" *ngFor="let res of restaurants" (click)="onSelect(res.id)">
+        <div fxFlex="33%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="50%" *ngFor="let res of restaurants | async" (click)="onSelect(res.id)">
             <div class="round-container" *ngIf="(roundTile$ | async); else square">
                 <div class="round"
                     [ngStyle]="{'background-image': 'url(' + res.photoUrl + ')', 'background-size': 'cover', 'background-position': 'center'}">

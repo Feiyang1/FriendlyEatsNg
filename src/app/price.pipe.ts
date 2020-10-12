@@ -13,5 +13,4 @@ export class PricePipe implements PipeTransform {
 
     return price.join('');
   }
-
 }

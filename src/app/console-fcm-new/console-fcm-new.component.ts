@@ -58,13 +58,11 @@ export class ConsoleFcmNewComponent implements OnInit {
   }
 
   onSend() {
-    console.log(this.createMessage());
     this.messagesService.send(this.createMessage());
     this.dialogRef.close();
   }
 
   private createMessage(): Message {
-    console.log('audience', this.audience);
     return {
       title: this.titleCtrl.value,
       text: this.textCtrl.value,

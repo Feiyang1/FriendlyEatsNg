@@ -16,7 +16,6 @@ export class ShellComponent implements OnInit {
 
   ngOnInit(): void {
     this.darkTheme$ = this.rc.parameters.pipe(map(parameters => {
-      console.log(parameters);
       const param = parameters.find(p => p.name === 'dark') as RcParameter<boolean>;
 
       if (param) {

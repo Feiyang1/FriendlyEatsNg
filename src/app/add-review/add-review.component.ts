@@ -23,6 +23,5 @@ export class AddReviewComponent implements OnInit {
 
   onRatingChanged(rating: number): void {
     this.review.rating = rating;
-    console.log('rating changed to ', rating);
   }
 }

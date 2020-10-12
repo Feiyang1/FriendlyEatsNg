@@ -23,7 +23,6 @@ export class RestaurantsComponent implements OnInit {
 
   ngOnInit(): void {
     this.roundTile$ = this.rc.parameters.pipe(map(parameters => {
-      console.log(parameters)
       const param = parameters.find(p => p.name === 'rounded') as RcParameter<boolean>;
       if (param) {
         return param.value;
@@ -34,7 +33,6 @@ export class RestaurantsComponent implements OnInit {
   }
 
   onSelect(id: number) {
-    console.log('onSelect', id);
     this.router.navigate([`restaurant/${id}`]);
   }
 }

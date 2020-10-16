@@ -39,3 +39,8 @@ html, body {
 body { 
     margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
 }
+
+@font-face {
+  font-family: "FirebaseFont";
+  src: url("http://www.gstatic.com/mobilesdk/200309_mobilesdk/GMPIcons.ttf");
+}

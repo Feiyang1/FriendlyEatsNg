@@ -17,3 +17,7 @@ export interface AnalyticsState {
 export interface AppState {
     restaurants: Restaurant[];
 }
+
+export interface TutorialState {
+    
+}

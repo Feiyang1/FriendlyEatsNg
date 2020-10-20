@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { openDB, IDBPDatabase } from 'idb';
-import { Restaurant, RestaurantImpl } from 'src/models/restaurant';
-import { AnalyticsState, AppState, FCMState, RCState } from 'src/models/state';
+import { AnalyticsState, AppState, FCMState, RCState, TutorialState } from 'src/models/state';
 
 const DB_NAME = 'FIRENDLYEATS_DEMO_DATABASE';
 const STORE_NAME = 'FIRENDLYEATS_DEMO_STORE';
@@ -10,6 +9,7 @@ const APP_STATE_KEY = 'app';
 const RC_STATE_KEY = 'rc';
 const FCM_STATE_KEY = 'fcm';
 const ANALYTICS_STATE_KEY = 'analytics';
+const TUTORIAL_STATE_KEY = 'tutorial';
 
 @Injectable({
   providedIn: 'root'
@@ -69,6 +69,16 @@ export class PersistenceService {
   async setAnalyticsState(state: AnalyticsState) {
     const db = await this._dbPromise;
     return db.put(STORE_NAME, state, ANALYTICS_STATE_KEY);
+  }
+
+  async getTutorialState(): Promise<TutorialState | undefined> {
+    const db = await this._dbPromise;
+    return db.transaction(STORE_NAME).objectStore(STORE_NAME).get(TUTORIAL_STATE_KEY);
+  }
+
+  async setTutorialState(state: TutorialState) {
+    const db = await this._dbPromise;
+    return db.put(STORE_NAME, state, TUTORIAL_STATE_KEY);
   }
 
 }

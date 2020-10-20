@@ -21,6 +21,7 @@ import { ConsoleFcmNewComponent } from './console-fcm-new/console-fcm-new.compon
 import { NotificationsComponent } from './notifications/notifications.component';
 import { AddReviewComponent } from './add-review/add-review.component';
 import { StarRatingComponent } from './star-rating/star-rating.component';
+import { MascotComponent } from './mascot/mascot.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { StarRatingComponent } from './star-rating/star-rating.component';
     ConsoleFcmNewComponent,
     NotificationsComponent,
     AddReviewComponent,
-    StarRatingComponent
+    StarRatingComponent,
+    MascotComponent
   ],
   imports: [
     BrowserModule,

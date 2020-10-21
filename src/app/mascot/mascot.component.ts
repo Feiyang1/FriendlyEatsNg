@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mascot.component.css']
 })
 export class MascotComponent implements OnInit {
-
+  showWelcome: boolean = true;
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  onLetsGo(): void {
+    this.showWelcome = false;
+  }
 }

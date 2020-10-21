@@ -1,5 +1,20 @@
-<div class="overlay">
+<div class="overlay" [ngClass]="!showWelcome && 'hide'">
 
 </div>
 
-<img class="mascot" src="assets/images/robot_export.png">
+
+<div class="welcome" [ngClass]="!showWelcome && 'hide'">
+    <img class="welcome-bubble" src="assets/images/welcome-bubble.png">
+    <img class="mascot" src="assets/images/robot_export.png">
+    
+    <div class="welcome-content">
+        <p> 
+            Welcome to the Firebase for web demo! Learn how Firebase
+            can help you quickly change the look and feel of your site
+            with remote config and engage your audience with CLoud Messaging
+        </p>
+        <div class="lets-go" (click)="onLetsGo()">
+            Lets go!
+        </div>
+    </div>
+</div>

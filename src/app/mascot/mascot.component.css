@@ -9,11 +9,49 @@
     opacity: 1;
 }
 
-.mascot {
+.welcome {
     position: fixed;
-    width: 30rem;
-    height: 30rem;
-    left: 0;
+    left: 0rem;
     bottom: 0rem;
     z-index: 1001;
+}
+
+.welcome .mascot {
+    position: absolute;
+    width: 30rem;
+    height: 30rem;
+    left: 5rem;
+    bottom: -8rem;
+}
+
+.welcome .welcome-bubble {
+    position: absolute;
+    width: 30rem;
+    height: 15rem;
+    left: 20rem;
+    bottom: 20rem;
+}
+
+.welcome .welcome-content {
+    position: fixed;
+    width: 26rem;
+    height: 10rem;
+    left: 22rem;
+    bottom: 24rem;
+    z-index: 1002;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.welcome .welcome-content .lets-go {
+    color: white;
+    background-color: orange;
+    border-radius: 5px;
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
+}
+
+.hide {
+    display: none;
 }

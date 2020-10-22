@@ -1,20 +1,89 @@
-<div class="overlay" [ngClass]="!showWelcome && 'hide'">
+<div class="overlay" [ngClass]="!showWelcome() && 'hide'">
 
 </div>
 
 
-<div class="welcome" [ngClass]="!showWelcome && 'hide'">
-    <img class="welcome-bubble" src="assets/images/welcome-bubble.png">
+<div class="welcome" [ngClass]="!showWelcome() && 'hide'">
+    <img class="bubble" src="assets/images/welcome-bubble.png">
     <img class="mascot" src="assets/images/robot_export.png">
-    
-    <div class="welcome-content">
-        <p> 
+
+    <div class="content">
+        <p>
             Welcome to the Firebase for web demo! Learn how Firebase
             can help you quickly change the look and feel of your site
             with remote config and engage your audience with CLoud Messaging
         </p>
         <div class="lets-go" (click)="onLetsGo()">
             Lets go!
+        </div>
+    </div>
+</div>
+
+<div class="half" [ngClass]="showWelcome() && 'hide'">
+    <img class="main-bubble" [ngClass]="!showMain() && 'hide'" src="assets/images/main_page_bubble.png">
+    <img class="bubble" [ngClass]="showMain() && 'hide'" src="assets/images/welcome-bubble.png">
+    <img class="mascot" src="assets/images/robot_export.png">
+
+    <div class="content" [ngClass]="showMain() && 'main'">
+
+        <!-- Main -->
+        <div [ngClass]="!showMain() && 'hide'">
+            <p>
+                This is the main page! To the right is a sample restaurant search and review app
+                called FriendlyEats.
+            </p>
+            <p>
+                Select one of the Firebase products on the dark colored bar to the left to see
+                how they can help you grow your web business.
+            </p>
+        </div>
+
+        <!-- RC -->
+        <div [ngClass]="!showRc() && 'hide'">
+            <p>Remote Config is a powerful tool that helps you tailor content for your users</p>
+            <p>Try for yourself by changing one of the parameters above, either 'rounded'
+                or 'dark mode'. Click to the right of each row to edit, valid options are 'true' or 'false'
+            </p>
+        </div>
+
+        <!-- RC Dark Mode -->
+        <div [ngClass]="!showRcDark() && 'hide'">
+            <p>Amazing! You changed the page to dark mode. Again, with <b>Remote Config</b>
+                you can use conditions to only rollout this change to a specific audience or test on a percentage of
+                users.
+                You could even create custom content for a specific location or local holiday.
+            </p>
+        </div>
+
+        <!-- RC Rounded -->
+        <div [ngClass]="!showRcRounded() && 'hide'">
+            <p>Nice! You changed the page layout and style with a simple parameter change. With <b>Remote Config</b>
+                you can also create conditions for each parameter and target specific audience, locations, hardware and
+                browsers (not covered in this demo).
+                Now try changing "dark_mode" or checkout <b>Cloud Messaging</b>
+            </p>
+        </div>
+
+        <!-- FCM -->
+        <div [ngClass]="!showFcm() && 'hide'">
+            <p>
+                <b>Cloud Messaging</b> helps you keep your users engaged and informed.
+                Notify users of new content, special offers, you can target with predefined segments, or create your
+                own.
+            </p>
+            <p>
+                Give it a try! Select 'New Notification' above and follow the steps.
+            </p>
+        </div>
+
+        <!-- FCM MSG-->
+        <div [ngClass]="!showFcmMsg() && 'hide'">
+            <p>
+                Perfect! You can see the message has been added to the list above and has
+                appeared as a notification at the top left corner of the friendlyeats web app.
+                We could send users special offers, reminders or in this case suggestions of restaurants they might enjoy.
+                Try sending another message or checkout <b>Remote Config</b>
+            </p>
         </div>
     </div>
 </div>

@@ -3,6 +3,7 @@ import { Observable, Subject } from 'rxjs';
 import { Message } from '../models/message';
 import { Audience, FakeAnalyticsService } from './fake-analytics.service';
 import { PersistenceService } from './persistence.service';
+import { TutorialService, TutorialState } from './tutorial.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,11 @@ export class MessagesService {
   private _messages = new Subject<Message>();
   public readonly messages: Observable<Message> = this._messages.asObservable();
 
-  constructor(private _analyticsService: FakeAnalyticsService, private persistenceService: PersistenceService) {
+  constructor(
+    private _analyticsService: FakeAnalyticsService,
+    private persistenceService: PersistenceService,
+    private tutorialService: TutorialService
+  ) {
     this.init();
   }
 
@@ -35,6 +40,7 @@ export class MessagesService {
       this._unreadMessages = [...this._unreadMessages, msg];
     }
 
+    this.tutorialService.updateState(TutorialState.FcmMsg);
     this.save();
   }
 

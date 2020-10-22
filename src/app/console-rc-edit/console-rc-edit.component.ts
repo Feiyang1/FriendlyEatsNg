@@ -15,9 +15,9 @@ export class ConsoleRcEditComponent implements OnInit {
 
   onUpdate(): void {
     const param = { name: this.data.name, value: false };
-    if (this.data.value === 'false') {
+    if (this.data.value === 'false' || this.data.value === false) {
       param.value = false;
-    } else if (this.data.value === 'true') {
+    } else if (this.data.value === 'true' || this.data.value === true) {
       param.value = true;
     } else {
       // TODO: add data validation, so it becomes impossible.

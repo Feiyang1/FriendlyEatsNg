@@ -4,27 +4,27 @@
     top: 0;
     bottom: 0;
     right: 0;
-    z-index: 1000;
+    z-index: 997;
     background: rgba(0, 0, 0, 0.32);
     opacity: 1;
 }
 
-.welcome {
+.welcome, .half {
     position: fixed;
     left: 0rem;
     bottom: 0rem;
-    z-index: 1001;
+    z-index: 998;
 }
 
 .welcome .mascot {
     position: absolute;
-    width: 30rem;
-    height: 30rem;
+    width: 25rem;
+    height: 25rem;
     left: 5rem;
-    bottom: -8rem;
+    bottom: 0rem;
 }
 
-.welcome .welcome-bubble {
+.welcome .bubble {
     position: absolute;
     width: 30rem;
     height: 15rem;
@@ -32,19 +32,19 @@
     bottom: 20rem;
 }
 
-.welcome .welcome-content {
+.welcome .content {
     position: fixed;
     width: 26rem;
     height: 10rem;
     left: 22rem;
     bottom: 24rem;
-    z-index: 1002;
+    z-index: 999;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.welcome .welcome-content .lets-go {
+.welcome .content .lets-go {
     color: white;
     background-color: orange;
     border-radius: 5px;
@@ -54,4 +54,45 @@
 
 .hide {
     display: none;
+}
+
+.half .mascot {
+    position: absolute;
+    width: 20rem;
+    height: 20rem;
+    left: 2rem;
+    bottom: -5rem;
+}
+
+.half .main-bubble {
+    position: absolute;
+    width: 30rem;
+    height: 30rem;
+    left: 10rem;
+    bottom: 10rem;
+}
+
+.half .bubble {
+    position: absolute;
+    width: 30rem;
+    height: 15rem;
+    left: 11rem;
+    bottom: 12rem;
+}
+
+.half .content {
+    position: fixed;
+    width: 26rem;
+    height: 10rem;
+    left: 13rem;
+    bottom: 16rem;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.half .content.main {
+    left: 13rem;
+    bottom: 28rem;
 }

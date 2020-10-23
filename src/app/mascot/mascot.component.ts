@@ -55,12 +55,20 @@ export class MascotComponent implements OnInit {
     return this.tutorialService.state === TutorialState.RcRounded;
   }
 
+  isAnyRc(): boolean {
+    return this.showRc() || this.showRcDark() || this.showRcRounded();
+  }
+
   showFcm(): boolean {
     return this.tutorialService.state === TutorialState.Fcm;
   }
 
   showFcmMsg(): boolean {
     return this.tutorialService.state === TutorialState.FcmMsg;
+  }
+
+  isAnyFcm(): boolean {
+    return this.showFcm() || this.showFcmMsg();
   }
 
   hideBubble(): void {

@@ -86,7 +86,7 @@
     width: 24rem;
     height: 10rem;
     left: 13rem;
-    bottom: 14rem;
+    bottom: 14.5rem;
     z-index: 999;
     display: flex;
     flex-direction: column;
@@ -95,7 +95,7 @@
 
 .half .content.main {
     left: 13rem;
-    bottom: 24rem;
+    bottom: 25rem;
 }
 
 .half .dismiss {
@@ -110,4 +110,38 @@
 .half .dismiss.main {
     left: 36rem;
     bottom: 34rem;
+}
+
+.half .more-info {
+    position: fixed;
+    width: 18rem;
+    height: 5rem;
+    left: 21rem;
+    bottom: 3rem;
+    z-index: 999;
+}
+
+.more-info .links{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.more-info .text {
+    color: rgb(27, 58, 87);
+    text-align: center;
+}
+
+.links .link {
+    color: white;
+    background-color: #1a73e8;
+    border-radius: 5px;
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.content {
+    line-height: 22px;
+    font-size: 18px;
 }

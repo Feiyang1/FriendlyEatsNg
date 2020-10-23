@@ -12,7 +12,7 @@
         <p>
             Welcome to the Firebase for web demo! Learn how Firebase
             can help you quickly change the look and feel of your site
-            with remote config and engage your audience with CLoud Messaging
+            with remote config and engage your audience with Cloud Messaging
         </p>
         <div class="lets-go" (click)="onLetsGo()">
             Lets go!
@@ -24,7 +24,8 @@
     <img class="main-bubble" [ngClass]="{ hide: !showMain() || !isShowBubble}" src="assets/images/main_page_bubble.png">
     <img class="bubble" [ngClass]="{ hide: showMain() || !isShowBubble}" src="assets/images/welcome-bubble.png">
     <img class="mascot" src="assets/images/robot_export.png" (click)="toggleBubble()">
-    <mat-icon class="dismiss" [ngClass]="{main: showMain(), hide: !isShowBubble}" (click)="hideBubble()">highlight_off</mat-icon>
+    <mat-icon class="dismiss" [ngClass]="{main: showMain(), hide: !isShowBubble}" (click)="hideBubble()">highlight_off
+    </mat-icon>
 
     <div class="content" [ngClass]="{main: showMain(), hide: !isShowBubble}">
 
@@ -83,9 +84,30 @@
             <p>
                 Perfect! You can see the message has been added to the list above and has
                 appeared as a notification at the top left corner of the friendlyeats web app.
-                We could send users special offers, reminders or in this case suggestions of restaurants they might enjoy.
+                We could send users special offers, reminders or in this case suggestions of restaurants they might
+                enjoy.
                 Try sending another message or checkout <b>Remote Config</b>
             </p>
+        </div>
+    </div>
+
+    <div class="more-info">
+        <!-- RC -->
+        <div [ngClass]="!isAnyRc() && 'hide'" [@showHide]="isAnyRc() ? 'show' : 'hide'">
+            <p class="text">Discover more about Remote Config</p>
+            <div class="links">
+                <a class="link" href="https://firebase.google.com/docs/remote-config/use-config-web" target="_blank">Docs</a>
+                <a class="link" href="https://firebase.google.com/products/remote-config" target="_blank">Product Page</a>
+            </div>
+        </div>
+
+        <!-- FCM -->
+        <div [ngClass]="!isAnyFcm() && 'hide'" [@showHide]="isAnyFcm() ? 'show' : 'hide'">
+            <p class="text">Discover more about Cloud Messaging</p>
+            <div class="links">
+                <a class="link" href="https://firebase.google.com/docs/cloud-messaging/js/client" target="_blank">Docs</a>
+                <a class="link" href="https://firebase.google.com/products/cloud-messaging" target="_blank">Product Page</a>
+            </div>
         </div>
     </div>
 </div>

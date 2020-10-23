@@ -16,10 +16,10 @@ import { TutorialService, TutorialState } from '../tutorial.service';
         opacity: 0
       })),
       transition('show => hide', [
-        animate('5s')
+        animate('1s')
       ]),
       transition('hide => show', [
-        animate('0.5s')
+        animate('1s')
       ])
     ])
   ]

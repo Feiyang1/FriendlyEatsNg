@@ -3,5 +3,6 @@ export enum EventName {
     VisitedFcm = 'visited-fcm',
     ChangedDarkMode = 'changed-dark-mode',
     ChangedRounded = 'changed-rounded',
-    SentMsg = 'sent-msg'
+    SentMsg = 'sent-msg',
+    WroteReview = 'wrote-review'
 }

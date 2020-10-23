@@ -3,6 +3,9 @@ import { Restaurant, RestaurantImpl, Review } from 'src/models/restaurant';
 import { generateMockRestaurants } from 'src/mocks';
 import { PersistenceService } from './persistence.service';
 import { BehaviorSubject } from 'rxjs';
+import { FakeAnalyticsService } from './fake-analytics.service';
+import { AngularFireAnalytics } from '@angular/fire/analytics';
+import { EventName } from 'src/models/analytics-events';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +15,11 @@ export class RestaurantService {
   private _restaurants = new BehaviorSubject([]);
   readonly restaurants = this._restaurants.asObservable();
 
-  constructor(private persistenceService: PersistenceService) {
+  constructor(
+    private persistenceService: PersistenceService,
+    private analyticsService: FakeAnalyticsService,
+    private analytics: AngularFireAnalytics
+  ) {
     this.init();
   }
 
@@ -33,6 +40,8 @@ export class RestaurantService {
     if (res) {
       res.reviews.push(review);
       this.save();
+      this.analyticsService.wroteReview = true;
+      this.analytics.logEvent(EventName.WroteReview);
     }
   }
 

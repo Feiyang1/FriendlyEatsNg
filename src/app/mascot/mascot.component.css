@@ -53,7 +53,7 @@
 }
 
 .hide {
-    display: none;
+    display: none !important;
 }
 
 .half .mascot {
@@ -61,7 +61,8 @@
     width: 20rem;
     height: 20rem;
     left: 2rem;
-    bottom: -5rem;
+    bottom: -8rem;
+    cursor: pointer;
 }
 
 .half .main-bubble {
@@ -69,7 +70,7 @@
     width: 30rem;
     height: 30rem;
     left: 10rem;
-    bottom: 10rem;
+    bottom: 7rem;
 }
 
 .half .bubble {
@@ -77,15 +78,15 @@
     width: 30rem;
     height: 15rem;
     left: 11rem;
-    bottom: 12rem;
+    bottom: 10rem;
 }
 
 .half .content {
     position: fixed;
-    width: 26rem;
+    width: 24rem;
     height: 10rem;
     left: 13rem;
-    bottom: 16rem;
+    bottom: 14rem;
     z-index: 999;
     display: flex;
     flex-direction: column;
@@ -94,5 +95,19 @@
 
 .half .content.main {
     left: 13rem;
-    bottom: 28rem;
+    bottom: 24rem;
+}
+
+.half .dismiss {
+    position: fixed;
+    left: 38rem;
+    bottom: 23rem;
+    font-size: 35px;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.half .dismiss.main {
+    left: 36rem;
+    bottom: 34rem;
 }

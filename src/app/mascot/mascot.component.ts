@@ -1,3 +1,4 @@
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { TutorialService, TutorialState } from '../tutorial.service';
 
@@ -5,9 +6,26 @@ import { TutorialService, TutorialState } from '../tutorial.service';
 @Component({
   selector: 'app-mascot',
   templateUrl: './mascot.component.html',
-  styleUrls: ['./mascot.component.css']
+  styleUrls: ['./mascot.component.css'],
+  animations: [
+    trigger('showHide', [
+      state('show', style({
+        opacity: 1
+      })),
+      state('hide', style({
+        opacity: 0
+      })),
+      transition('show => hide', [
+        animate('5s')
+      ]),
+      transition('hide => show', [
+        animate('0.5s')
+      ])
+    ])
+  ]
 })
 export class MascotComponent implements OnInit {
+  isShowBubble = true;
   constructor(public tutorialService: TutorialService) { }
 
   ngOnInit(): void {
@@ -43,5 +61,13 @@ export class MascotComponent implements OnInit {
 
   showFcmMsg(): boolean {
     return this.tutorialService.state === TutorialState.FcmMsg;
+  }
+
+  hideBubble(): void {
+    this.isShowBubble = false;
+  }
+
+  toggleBubble(): void {
+    this.isShowBubble = !this.isShowBubble;
   }
 }

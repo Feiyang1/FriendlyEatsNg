@@ -12,7 +12,7 @@ import { RcService } from '../rc.service';
 export class ShellComponent implements OnInit {
   darkTheme$: Observable<boolean>;
   fakeLoading$: Observable<boolean>;
-  constructor(private rc: RcService) { }
+  constructor(private rc: RcService, public window: Window) { }
 
   ngOnInit(): void {
     this.darkTheme$ = this.rc.parameters.pipe(map(parameters => {

@@ -56,7 +56,7 @@ import { environment } from '../environments/environment';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAnalyticsModule
   ],
-  providers: [],
+  providers: [{ provide: Window, useValue: window }],
   entryComponents: [ConsoleRcEditComponent],
   bootstrap: [AppComponent]
 })

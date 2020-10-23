@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAnalytics } from '@angular/fire/analytics';
 import { TutorialService, TutorialState } from '../tutorial.service';
+import { EventName } from '../../models/analytics-events';
 
 @Component({
   selector: 'app-console',
@@ -9,7 +11,7 @@ import { TutorialService, TutorialState } from '../tutorial.service';
 export class ConsoleComponent implements OnInit {
 
   selected: Product = Product.None;
-  constructor(private tutorialService: TutorialService) { }
+  constructor(private tutorialService: TutorialService, private analytics: AngularFireAnalytics) { }
 
   ngOnInit(): void {
   }
@@ -19,8 +21,10 @@ export class ConsoleComponent implements OnInit {
 
     if (this.selected === Product.FCM) {
       this.tutorialService.updateState(TutorialState.Fcm);
+      this.analytics.logEvent(EventName.VisitedFcm);
     } else if (this.selected === Product.RC) {
       this.tutorialService.updateState(TutorialState.Rc);
+      this.analytics.logEvent(EventName.VisitedFcm);
     }
   }
 }

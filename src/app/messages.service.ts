@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
+import { AngularFireAnalytics } from '@angular/fire/analytics';
 import { Observable, Subject } from 'rxjs';
+import { EventName } from 'src/models/analytics-events';
 import { Message } from '../models/message';
 import { Audience, FakeAnalyticsService } from './fake-analytics.service';
 import { PersistenceService } from './persistence.service';
@@ -17,7 +19,8 @@ export class MessagesService {
   constructor(
     private _analyticsService: FakeAnalyticsService,
     private persistenceService: PersistenceService,
-    private tutorialService: TutorialService
+    private tutorialService: TutorialService,
+    private analytics: AngularFireAnalytics
   ) {
     this.init();
   }
@@ -41,6 +44,7 @@ export class MessagesService {
     }
 
     this.tutorialService.updateState(TutorialState.FcmMsg);
+    this.analytics.logEvent(EventName.SentMsg);
     this.save();
   }
 

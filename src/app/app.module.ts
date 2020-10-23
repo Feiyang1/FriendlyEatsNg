@@ -22,6 +22,9 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { AddReviewComponent } from './add-review/add-review.component';
 import { StarRatingComponent } from './star-rating/star-rating.component';
 import { MascotComponent } from './mascot/mascot.component';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -49,7 +52,9 @@ import { MascotComponent } from './mascot/mascot.component';
     FlexLayoutModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAnalyticsModule
   ],
   providers: [],
   entryComponents: [ConsoleRcEditComponent],

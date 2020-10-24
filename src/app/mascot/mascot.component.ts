@@ -25,7 +25,6 @@ import { TutorialService, TutorialState } from '../tutorial.service';
   ]
 })
 export class MascotComponent implements OnInit {
-  isShowBubble = true;
   constructor(public tutorialService: TutorialService) { }
 
   ngOnInit(): void {
@@ -72,10 +71,14 @@ export class MascotComponent implements OnInit {
   }
 
   hideBubble(): void {
-    this.isShowBubble = false;
+    this.tutorialService.updateShowBubble(false);
   }
 
   toggleBubble(): void {
-    this.isShowBubble = !this.isShowBubble;
+    this.tutorialService.updateShowBubble(!this.tutorialService.showBubble)
+  }
+
+  get isShowBubble(): boolean {
+    return this.tutorialService.showBubble;
   }
 }

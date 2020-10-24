@@ -24,7 +24,7 @@ export class ConsoleComponent implements OnInit {
       this.analytics.logEvent(EventName.VisitedFcm);
     } else if (this.selected === Product.RC) {
       this.tutorialService.updateState(TutorialState.Rc);
-      this.analytics.logEvent(EventName.VisitedFcm);
+      this.analytics.logEvent(EventName.VisitedRc);
     }
   }
 }

@@ -6,6 +6,9 @@
     display: flex;
     flex-direction: row;
     min-height: 100%;
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
 }
 
 .loading {
@@ -14,6 +17,7 @@
 
 app-console {
     width: 40%;
+    min-width: 660px;
 }
 
 .friendly-eats {

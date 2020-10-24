@@ -11,6 +11,10 @@ import { EventName } from '../../models/analytics-events';
 export class ConsoleComponent implements OnInit {
 
   selected: Product = Product.None;
+
+  blinkRc = true;
+  blinkFcm = true;
+
   constructor(private tutorialService: TutorialService, private analytics: AngularFireAnalytics) { }
 
   ngOnInit(): void {
@@ -22,9 +26,11 @@ export class ConsoleComponent implements OnInit {
     if (this.selected === Product.FCM) {
       this.tutorialService.updateState(TutorialState.Fcm);
       this.analytics.logEvent(EventName.VisitedFcm);
+      this.blinkFcm = false;
     } else if (this.selected === Product.RC) {
       this.tutorialService.updateState(TutorialState.Rc);
       this.analytics.logEvent(EventName.VisitedRc);
+      this.blinkRc = false;
     }
   }
 }

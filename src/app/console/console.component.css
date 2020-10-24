@@ -1,6 +1,7 @@
 mat-sidenav-container {
     height: 100%;
 }
+
 mat-sidenav {
     background-color: rgb(5 30 52);
     color: white;
@@ -35,4 +36,14 @@ mat-sidenav-content {
 
 .selected {
     color: #669df6;
+}
+
+.blink {
+    animation: blinker 2s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
 }

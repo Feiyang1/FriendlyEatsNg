@@ -3,8 +3,10 @@
         <div class="side-container">
             <img class="firebase-logo"
                 src="https://www.gstatic.com/mobilesdk/160503_mobilesdk/logo/2x/firebase_28dp.png">
-            <div (click)="onSelect('rc')" class="product" [ngClass]="selected === 'rc' && 'selected'">gmp_nav20_remote_config</div>
-            <div (click)="onSelect('fcm')" class="product" [ngClass]="selected === 'fcm' && 'selected'">gmp_nav20_cloud_messaging</div>
+            <div (click)="onSelect('rc')" class="product" [ngClass]="{ selected: selected === 'rc', blink: blinkRc}">
+                gmp_nav20_remote_config</div>
+            <div (click)="onSelect('fcm')" class="product" [ngClass]="{selected: selected === 'fcm', blink: blinkFcm}">
+                gmp_nav20_cloud_messaging</div>
         </div>
     </mat-sidenav>
     <mat-sidenav-content>
